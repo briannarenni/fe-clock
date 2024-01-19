@@ -1,0 +1,97 @@
+:root {
+  /* Base Icon Sizing */
+  --icon-xs: 1.25em;
+  --icon-sm: 1.5em;
+  --icon-md: 2em;
+  --icon-lg: 2em;
+
+  /* Base Gap Scale */
+  --gap-xs: calc(1em * 0.5);
+  --gap-sm: 1em;
+  --gap-md: calc(1em * 1.25);
+  --gap-lg: calc(1em * 1.5);
+  --gap-xl: calc(1em * 2);
+  --gap-xxl: calc(1em * 3);
+  --gap-xxxl: calc(1em * 4);
+
+  /* Base Spacing Scale */
+  --spacing-xs: 0.25em;
+  --spacing-sm: 0.5em;
+  --spacing-md: 0.75em;
+  --spacing-lg: 1em;
+}
+
+@media (min-width: 768px) {
+  :root {
+    /* Resp. Icon Sizing */
+    --icon-xs: 1.25em;
+    --icon-sm: 1.75em;
+    --icon-md: 2em;
+    --icon-lg: 2.25em;
+
+    /* Resp. Gap Scale */
+    --gap-xs: calc(1em * 0.75);
+    --gap-sm: calc(1em * 1.25);
+    --gap-md: calc(1em * 1.5);
+    --gap-lg: calc(1em * 1.75);
+    --gap-xl: calc(1em * 2.25);
+    --gap-xxl: calc(1em * 3.5);
+    --gap-xxxl: calc(1em * 4.5);
+
+    /* Resp. Spacing Scale */
+    --spacing-xs: 0.3em;
+    --spacing-sm: 0.6em;
+    --spacing-md: 0.9em;
+    --spacing-lg: 1.2em;
+  }
+}
+
+@media (min-width: 992px) {
+  :root {
+    /* Resp. Icon Sizing */
+    --icon-xs: 1.5em;
+    --icon-sm: 2em;
+    --icon-md: 2.25em;
+    --icon-lg: 3em;
+
+    /* Resp. Gap Scale */
+    --gap-xs: calc(1em * 1);
+    --gap-sm: calc(1em * 1.5);
+    --gap-md: calc(1em * 1.75);
+    --gap-lg: calc(1em * 2);
+    --gap-xl: calc(1em * 2.5);
+    --gap-xxl: calc(1em * 4);
+    --gap-xxxl: calc(1em * 5);
+
+    /* Resp. Spacing Scale */
+    --spacing-xs: 0.35em;
+    --spacing-sm: 0.7em;
+    --spacing-md: 1em;
+    --spacing-lg: 1.3em;
+  }
+}
+
+@media (min-width: 1200px) {
+  :root {
+    /* Resp. Icon Sizing */
+    --icon-xs: 1.75em;
+    --icon-sm: 2.25em;
+    --icon-md: 2.50em;
+    --icon-lg: 3em;
+
+    /* Resp. Gap Scale */
+    --gap-xs: calc(1em * 1.25);
+    --gap-sm: calc(1em * 1.75);
+    --gap-md: calc(1em * 2);
+    --gap-lg: calc(1em * 2.5);
+    --gap-xl: calc(1em * 3);
+    --gap-xxl: calc(1em * 4.5);
+    --gap-xxxl: calc(1em * 5.5);
+
+    /* Resp. Spacing Scale */
+    --spacing-xs: 0.4em;
+    --spacing-sm: 0.8em;
+    --spacing-md: 1.1em;
+    --spacing-lg: 1.4em;
+  }
+}

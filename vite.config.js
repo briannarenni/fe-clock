@@ -12,13 +12,10 @@ export default defineConfig({
     alias: {
       '@': path.resolve(__dirname, './'),
       '@src': path.resolve(__dirname, './src'),
-      '@lib': path.resolve(__dirname, './src/lib'),
-      '@stores': path.resolve(__dirname, './src/stores'),
       '@scripts': path.resolve(__dirname, './src/scripts'),
       '@styles': path.resolve(__dirname, './src/styles'),
-      '@btn': path.resolve(__dirname, './src/lib/btn'),
       '@components': path.resolve(__dirname, './src/lib/components'),
-      '@layout': path.resolve(__dirname, './src/lib/layout')
+      '@containers': path.resolve(__dirname, './src/lib/containers'),
     }
   }
 });

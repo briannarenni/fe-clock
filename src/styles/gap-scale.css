@@ -1,5 +1,5 @@
 :root {
-  --icon-width: 1rem;
+  --icon-width: .88rem;
 
   --gap-sm: calc(1rem * 0.75);
   --gap-md: calc(1rem * 1.25);
@@ -15,7 +15,7 @@
 
 @media (min-width: 768px) {
   :root {
-    --icon-width: 1.25rem;
+    --icon-width: 1rem;
 
     /* Resp. Gap Scale */
     --gap-sm: calc(1rem * 1.25);
@@ -34,8 +34,6 @@
 
 @media (min-width: 992px) {
   :root {
-    --icon-width: 1.5rem;
-
     /* Resp. Gap Scale */
     --gap-sm: calc(1rem * 1.5);
     --gap-md: calc(1rem * 1.75);
@@ -53,7 +51,7 @@
 
 @media (min-width: 1200px) {
   :root {
-    --icon-width: 1.75rem;
+    --icon-width: 1.5rem;
 
     /* Resp. Gap Scale */
     --gap-sm: calc(1rem * 1.75);

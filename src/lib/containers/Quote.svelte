@@ -1,22 +1,59 @@
-<script></script>
+<script>
+  import { onMount } from 'svelte';
+  import { quoteStore } from '@scripts/stores.js';
+  import { fetchQuote } from '@scripts/api-fetch.js';
 
-<article class="quote-wrap">
-  <div class="quote">
-    <q>
-      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Esse nemo, et facilis commodi accusamus earum
-      saepe tempora impedit, debitis distinctio necessitatibus alias quo. Eveniet earum impedit ipsa placeat
-      eius aspernatur.
-    </q>
-    <br />
-    <br />
-    <p class="author">Lorem ipsum</p>
+  async function getQuote() {
+    const response = await fetchQuote();
+    // text, author
+    quoteStore.set({ quote: response.text, author: response.author });
+    console.log($quoteStore);
+  }
+
+  onMount(async () => {
+    getQuote();
+  });
+</script>
+
+<article >
+  <div class="quote-wrap">
+    <div class="quote">
+      <!--
+        {#if !$quoteStore.text}
+               Loader
+      {:else}
+        <q>{$quoteStore.text} </q>
+      {/if}
+      -->
+      <q>{$quoteStore.quote} </q>
+      <br />
+      <br />
+      <p class="author">{$quoteStore.author}</p>
+    </div>
+    <button on:click={getQuote} class="refresh-btn"
+      ><img src="public/assets/icons/refresh-icon.svg" alt="Refresh quote" /></button>
   </div>
-
-  <!-- <button>Ref</button> -->
 </article>
 
 <style>
+  .quote-wrap {
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  .quote {
+    width: 90%;
+  }
+
   .author {
     font-weight: bold;
+  }
+
+  .refresh-btn {
+    align-self: flex-start;
+    width: var(--icon-width);
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
   }
 </style>

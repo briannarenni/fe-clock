@@ -1,11 +1,52 @@
 @import '@styles/reset.css';
-@import '@styles/scale.css';
+@import '@styles/font-scale.css';
 
 :root {
+  --black: #000000;
+  --white: #FFFFFF;
+  --stone: #303030;
+  --gray: #979797;
   color-scheme: light dark;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+}
+
+html,
+body {
+  font-size: 18px;
+}
+
+body {
+  min-height: 100vh;
+  font-size: var(--font-base);
+  font-family: var(--font-family);
+  line-height: 1.5;
+  text-rendering: optimizeSpeed;
+}
+
+h1 {
+  font-size: var(--font-h1);
+}
+
+h2 {
+  font-size: var(--font-h2);
+}
+
+h3 {
+  font-size: var(--font-h3);
+}
+
+h4 {
+  font-size: var(--font-h4);
+}
+
+h5 {
+  font-size: var(--font-h5);
+}
+
+h6 {
+  font-size: var(--font-h6);
 }

@@ -15,12 +15,6 @@ p {
   padding: 0;
 }
 
-body {
-  min-height: 100vh;
-  text-rendering: optimizeSpeed;
-  line-height: 1.5;
-}
-
 img,
 picture {
   max-width: 100%;

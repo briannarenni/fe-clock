@@ -5,8 +5,8 @@
 A clock app using the following APIs:
 
 - [World Time API](http://worldtimeapi.org/) to set the time based on the visitor's IP adress. This API will also be used for additional data, like the day of the year shown in the expanded state.
-- [IP Geolocation API](https://freegeoip.app/) to set the city and country underneath the time
-- [Quotable API](https://github.com/lukePeavey/quotable) to generate random quotes.
+- [IP Geo Location API](https://rapidapi.com/natkapral/api/ip-geo-location)
+- [Famous Quotes API](https://rapidapi.com/saicoder/api/famous-quotes4)
 
 ## App features
 

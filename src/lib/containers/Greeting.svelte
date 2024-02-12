@@ -1,18 +1,10 @@
 <script>
   import { onMount } from 'svelte';
   import { geoStore } from '@scripts/stores.js';
+  import { userClockStore } from '@scripts/stores.js';
   import { timeStore } from '@scripts/stores.js';
   import { fetchGeo } from '@scripts/api-fetch.js';
   import { fetchTime } from '@scripts/api-fetch.js';
-
-  const formatTime = (datetime) => {
-    const dateObj = new Date(datetime);
-    const hours = dateObj.getHours();
-    const minutes = dateObj.getMinutes();
-    const time = `${hours}: ${minutes}`;
-
-    return time;
-  };
 
   async function getGeo() {
     const response = await fetchGeo();
@@ -31,9 +23,9 @@
 
   async function getTime(timezone) {
     const response = await fetchTime(timezone);
-    // datetime, day_of_week, day_of_year, week_number
+    // abbreviation, day_of_week, day_of_year, week_number
     timeStore.set({
-      time: formatTime(response.datetime),
+      abbr: response.abbreviation,
       dayOfWeek: response.day_of_week,
       dayOfYear: response.day_of_year,
       weekNumber: response.week_number
@@ -47,13 +39,17 @@
 </script>
 
 <main>
-  <p>Good [time of day]</p>
+  <h3 class="no-bold">Good [time of day]</h3>
   <!-- Tablet/Desktop -->
   <!-- <p>Good [time of day], it's currently</p> -->
-  <h1>{$timeStore.time}</h1>
+  <h1>{$userClockStore}</h1>
   <h3>in {$geoStore.city}, {$geoStore.area}</h3>
   <button>More</button>
   <button>Less</button>
 </main>
 
-<style></style>
+<style>
+  .no-bold {
+    font-weight: normal;
+  }
+</style>

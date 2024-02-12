@@ -10,7 +10,6 @@ export const fetchQuote = async () => {
         'x-rapidapi-host': import.meta.env.VITE_QUOTEAPI_HOST
       }
     }).json();
-    console.log(response);
     return response[0];
   } catch (error) {
     console.error(error);
@@ -33,7 +32,6 @@ export const fetchGeo = async () => {
         'X-RapidAPI-Host': import.meta.env.VITE_GEOAPI_HOST,
       }
     }).json();
-    console.log(response);
     return response;
   } catch (error) {
     console.error(error);
@@ -45,9 +43,9 @@ export const fetchGeo = async () => {
   }
 }
 
-// Time API Call
-export const fetchTime = async (timezone) => {
-  const url = `http://worldtimeapi.org/api/timezone/${timezone}`;
+// World API Call
+export const fetchTime = async () => {
+  const url = `http://worldtimeapi.org/api/ip/`;
   try {
     const response = await ky.get(url).json();
     console.log(response);
@@ -55,9 +53,10 @@ export const fetchTime = async (timezone) => {
   } catch (error) {
     console.error(error);
     if (error.response && error.response.status === 404) {
-      throw new Error('Time not found');
+      throw new Error('Clock not found');
     } else {
       throw new Error('Clock temporarily unavailable');
     }
   }
 }
+

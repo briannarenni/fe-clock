@@ -15,7 +15,7 @@
   });
 </script>
 
-<article >
+<article>
   <div class="quote-wrap">
     <div class="quote">
       <!--
@@ -30,8 +30,9 @@
       <br />
       <p class="author">{$quoteStore.author}</p>
     </div>
-    <button on:click={getQuote} class="refresh-btn"
-      ><img src="public/assets/icons/refresh-icon.svg" alt="Refresh quote" /></button>
+    <button on:click={getQuote} class="refresh-btn">
+      <img src="src/assets/icons/refresh-icon.svg" alt="Refresh quote" />
+    </button>
   </div>
 </article>
 

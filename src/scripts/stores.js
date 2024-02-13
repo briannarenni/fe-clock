@@ -8,6 +8,6 @@ setInterval(() => {
 
 export const quoteStore = writable({ quote: '', author: '' });
 
-export const geoStore = writable({ city: '', area: '', zoneCode: '', timezone: '' });
+export const geoStore = writable({ city: '', area: '', zoneCode: '', zoneName: '' });
 
 export const timeStore = writable({ abbr: '', dayOfWeek: 0, dayOfYear: 0, weekNumber: 0 });

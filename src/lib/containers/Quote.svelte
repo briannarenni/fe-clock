@@ -40,6 +40,7 @@
   .quote-wrap {
     display: flex;
     justify-content: space-evenly;
+    line-height: 22px;
   }
 
   .quote {

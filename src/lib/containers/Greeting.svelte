@@ -1,18 +1,10 @@
 <script>
   import { onMount } from 'svelte';
   import { geoStore } from '@scripts/stores.js';
+  import { userClockStore } from '@scripts/stores.js';
   import { timeStore } from '@scripts/stores.js';
   import { fetchGeo } from '@scripts/api-fetch.js';
   import { fetchTime } from '@scripts/api-fetch.js';
-
-  const formatTime = (datetime) => {
-    const dateObj = new Date(datetime);
-    const hours = dateObj.getHours();
-    const minutes = dateObj.getMinutes();
-    const time = `${hours}: ${minutes}`;
-
-    return time;
-  };
 
   async function getGeo() {
     const response = await fetchGeo();
@@ -21,7 +13,7 @@
       city: response.city.name,
       area: response.area.name,
       zoneCode: response.time.code,
-      timezone: response.time.timezone
+      zoneName: response.time.timezone
     });
     const { timezone } = $geoStore;
     if (timezone) {
@@ -31,9 +23,9 @@
 
   async function getTime(timezone) {
     const response = await fetchTime(timezone);
-    // datetime, day_of_week, day_of_year, week_number
+    // abbreviation, day_of_week, day_of_year, week_number
     timeStore.set({
-      time: formatTime(response.datetime),
+      abbr: response.abbreviation,
       dayOfWeek: response.day_of_week,
       dayOfYear: response.day_of_year,
       weekNumber: response.week_number
@@ -47,13 +39,55 @@
 </script>
 
 <main>
-  <p>Good [time of day]</p>
-  <!-- Tablet/Desktop -->
-  <!-- <p>Good [time of day], it's currently</p> -->
-  <h1>{$timeStore.time}</h1>
-  <h3>in {$geoStore.city}, {$geoStore.area}</h3>
-  <button>More</button>
-  <button>Less</button>
+  <div class="greeting-wrap">
+    <!-- TODO: Conditional icon -->
+    <!-- <img class="icon" src="" alt=""> -->
+
+    <!-- TODO: Conditional greeting -->
+    <h3 class="greeting no-bold">Good [greeting]</h3>
+
+    <!-- TODO: Tablet/Desktop conditional greeting -->
+    <!-- <p>Good [time of day], it's currently</p> -->
+  </div>
+
+  <div class="time-wrap">
+    <h1 class="time">{$userClockStore}</h1>
+    <span class="zone-code">{$geoStore.zoneCode}</span>
+  </div>
+  <h3 class="location">in {$geoStore.city}, {$geoStore.area}</h3>
+  <!-- TODO: Conditional button -->
+  <button class="expand-btn">More</button>
 </main>
 
-<style></style>
+<style>
+  .greeting-wrap {
+    display: flex;
+  }
+
+  .time-wrap {
+    display: flex;
+    align-items: baseline;
+    gap: var(--gap-sm);
+  }
+
+  .greeting {
+    line-height: 25px;
+  }
+
+  .time {
+    letter-spacing: -3px;
+  }
+
+  .zone-code {
+    font-size: 15px;
+  }
+
+  .location,
+  .zone-code {
+    line-height: 28px;
+  }
+
+  .no-bold {
+    font-weight: normal;
+  }
+</style>

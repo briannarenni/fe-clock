@@ -3,10 +3,10 @@
   --font-family: 'Inter', 'Helvetica', sans-serif;
   --font-base: 1rem;
   --font-h1: 11.11rem;
-  --font-h2: 3.11rem;
+  --font-h2: 3.1rem;
   --font-h3: 2.22rem;
   --font-h4: 1.33rem;
-  --font-h5: 1.11rem;
+  --font-h5: 1.1rem;
   --font-h6: 0.83rem;
 }
 
@@ -26,11 +26,11 @@
 @media (max-width: 767px) {
   :root {
     --font-base: 0.67rem;
-    --font-h1: 5.56rem;
-    --font-h2: 1.11rem;
+    --font-h1: 5rem;
+    --font-h2: 1.1rem;
     --font-h3: 0.83rem;
     --font-h4: 0.83rem;
     --font-h5: 0.83rem;
-    --font-h6: 0.56rem;
+    --font-h6: 0.55rem;
   }
 }

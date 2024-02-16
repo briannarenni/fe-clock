@@ -1,6 +1,6 @@
 import { writable } from 'svelte/store';
 
-export const userClockStore = writable(new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false }));
+export const userClockStore = writable(new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true }));
 
 setInterval(() => {
   userClockStore.set(new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false }));

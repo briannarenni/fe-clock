@@ -8,6 +8,8 @@
 </script>
 
 <main>
+  <!-- <div></div> -->
+  <!-- TODO: Greeting -->
   <div class="greeting">
     <!-- TODO: Conditional icon -->
     <!-- <img class="icon" src="" alt=""> -->
@@ -20,10 +22,19 @@
   </div>
 
   <div class="clock">
-    <h1 class="user-time">{$userClockStore}</h1>
-    <span class="zone-code">{$geoStore.zoneCode}</span>
+    <h1 class="user-time">{$userClockStore.currentTime}</h1>
+    {#if $userClockStore.currentPeriod}
+      <div class="info-12hr">
+        <h2 class="user-period">{$userClockStore.currentPeriod}</h2>
+        <p class="zone-code">{$geoStore.zoneCode}</p>
+      </div>
+    {:else}
+      <h5 class="info-24hr">{$geoStore.zoneCode}</h5>
+    {/if}
   </div>
+
   <h3 class="location">in {$geoStore.city}, {$geoStore.area}</h3>
+
   <!-- TODO: Conditional button -->
   <button class="expand-btn">More</button>
 </main>
@@ -35,8 +46,20 @@
 
   .clock {
     display: flex;
-    align-items: baseline;
     gap: var(--gap-sm);
+  }
+
+  /* 12-hour time alignment */
+  .info-12hr {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+
+  /* 24-hour time alignment */
+  .info-24hr {
+    align-self: center;
+    font-weight: normal;
   }
 
   .greeting {

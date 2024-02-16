@@ -41,6 +41,7 @@
 
   onMount(async () => {
     getGeo();
+    console.log($userClockStore);
   });
 </script>
 

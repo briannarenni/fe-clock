@@ -1,16 +1,14 @@
 <script>
   import { onMount } from 'svelte';
-  import { geoStore } from '@scripts/stores.js';
-  import { userClockStore } from '@scripts/stores.js';
-  import { timeStore } from '@scripts/stores.js';
-  import { fetchGeo } from '@scripts/api-fetch.js';
-  import { fetchTime } from '@scripts/api-fetch.js';
+  import { fetchGeo } from '@scripts/apiServices.js';
+  import { fetchTime } from '@scripts/apiServices.js';
+  import { geoStore } from '@scripts/clockStores.js';
+  import { userClockStore } from '@scripts/clockStores.js';
+  import { timeStore } from '@scripts/clockStores.js';
+  import { timeOfDayStore } from '@scripts/timeOfDay.js';
 
   import Quote from '@containers/Quote.svelte';
   import Clock from '@containers/Clock.svelte';
-  import Drawer from '@containers/Drawer.svelte';
-
-  // TODO: Move store logic to App?
 
   async function getGeo() {
     const response = await fetchGeo();
@@ -42,13 +40,13 @@
   onMount(async () => {
     getGeo();
     console.log($userClockStore);
+    console.log($timeOfDayStore);
   });
 </script>
 
 <div class="app-wrapper">
   <Quote />
   <Clock />
-  <!-- <Drawer /> -->
 </div>
 
 <style>

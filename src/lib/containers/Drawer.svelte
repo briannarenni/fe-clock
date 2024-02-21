@@ -1,4 +1,9 @@
-<script></script>
+<script>
+  import { timeStore } from '@scripts/clockStores.js';
+</script>
+
+<!-- TODO: Button -->
+<button class="expand-btn">More</button>
 
 <div class="info-drawer">
   <p>Current timezone</p>

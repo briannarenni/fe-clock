@@ -1,8 +1,8 @@
-import { writable } from 'svelte/store';
+import { writable} from 'svelte/store';
 
 function formatTime () {
   const now = new Date();
-  // const testLocale = 'en-US';
+  // const testLocale = 'de-DE';
   const hourCycle = new Intl.DateTimeFormat([], {
     hour: '2-digit',
     minute: '2-digit',
@@ -27,8 +27,8 @@ function formatTime () {
 export const quoteStore = writable({ quote: '', author: '' });
 export const geoStore = writable({ city: '', area: '', zoneCode: '', zoneName: '' });
 export const timeStore = writable({ abbr: '', dayOfWeek: 0, dayOfYear: 0, weekNumber: 0 });
-export const userClockStore = writable(formatTime());
 
+export const userClockStore = writable(formatTime());
 setInterval(() => {
   userClockStore.set(formatTime());
 }, 1000);

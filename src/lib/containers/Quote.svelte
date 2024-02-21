@@ -1,7 +1,7 @@
 <script>
   import { onMount } from 'svelte';
-  import { quoteStore } from '@scripts/stores.js';
-  import { fetchQuote } from '@scripts/api-fetch.js';
+  import { quoteStore } from '@scripts/clockStores.js';
+  import { fetchQuote } from '@scripts/apiServices.js';
 
   async function getQuote() {
     const response = await fetchQuote();

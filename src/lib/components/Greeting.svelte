@@ -4,11 +4,11 @@
   <!-- TODO: Conditional icon -->
   <!-- <img class="icon" src="" alt=""> -->
 
-  <!-- TODO: Conditional greeting -->
-  <h3 class="greeting no-bold">Good [greeting]</h3>
+  <!-- TODO: If mobile -->
+  <h3 class="greeting no-bold">[greeting]</h3>
 
-  <!-- TODO: Tablet/Desktop conditional greeting -->
-  <!-- <p>Good [time of day], it's currently</p> -->
+  <!-- TODO: If tablet/desktop -->
+  <!-- <p>[greeting], it's currently</p> -->
 </div>
 
 <style>

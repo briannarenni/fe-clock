@@ -48,7 +48,6 @@ export const fetchTime = async () => {
   const url = `http://worldtimeapi.org/api/ip/`;
   try {
     const response = await ky.get(url).json();
-    console.log(response);
     return response;
   } catch (error) {
     console.error(error);

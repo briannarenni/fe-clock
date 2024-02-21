@@ -1,5 +1,5 @@
 <script>
-  import { timeStore } from '@scripts/clockStores.js';
+  import { timeInfoStore } from '@scripts/stores.js';
 </script>
 
 <!-- TODO: Button -->

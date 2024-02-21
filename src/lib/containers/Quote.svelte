@@ -1,13 +1,11 @@
 <script>
   import { onMount } from 'svelte';
-  import { quoteStore } from '@scripts/clockStores.js';
+  import { quoteApiStore } from '@scripts/stores.js';
   import { fetchQuote } from '@scripts/apiServices.js';
 
   async function getQuote() {
     const response = await fetchQuote();
-    // text, author
-    quoteStore.set({ quote: response.text, author: response.author });
-    console.log($quoteStore);
+    quoteApiStore.set({ quote: response.text, author: response.author });
   }
 
   onMount(async () => {
@@ -19,17 +17,18 @@
   <div class="quote-wrap">
     <div class="quote">
       <!--
-        {#if !$quoteStore.text}
+        {#if !$quoteApiStore.text}
                Loader
       {:else}
-        <q>{$quoteStore.text} </q>
+        <q>{$quoteApiStore.text} </q>
       {/if}
       -->
-      <q>{$quoteStore.quote} </q>
+      <q>{$quoteApiStore.quote} </q>
       <br />
       <br />
-      <p class="author">{$quoteStore.author}</p>
+      <p class="author">{$quoteApiStore.author}</p>
     </div>
+
     <button on:click={getQuote} class="refresh-btn">
       <img src="src/assets/icons/refresh-icon.svg" alt="Refresh quote" />
     </button>

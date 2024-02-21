@@ -1,14 +1,7 @@
-# Clock app (Frontend Mentor challenge)
+# Dynamic Clock App
+A new design challenge from Frontend Mentor Pro, built with Svelte/Vite 💜
 
-## The challenge
-
-A clock app using the following APIs:
-
-- [World Time API](http://worldtimeapi.org/) to set the time based on the visitor's IP adress. This API will also be used for additional data, like the day of the year shown in the expanded state.
-- [IP Geo Location API](https://rapidapi.com/natkapral/api/ip-geo-location)
-- [Famous Quotes API](https://rapidapi.com/saicoder/api/famous-quotes4)
-
-## App features
+## The Challenge
 
 - Responsive app layout
 - Current time and location information based on user IP address
@@ -18,7 +11,16 @@ A clock app using the following APIs:
 
 ## Tools Used
 
-- Svelte (Vite)
+This app uses the following APIs:
+
+- [World Time API](http://worldtimeapi.org/)
+- [IP Geo Location API](https://rapidapi.com/natkapral/api/ip-geo-location)
+- [Famous Quotes API](https://rapidapi.com/saicoder/api/famous-quotes4)
+
+As well as these ever useful libraries:
+
 - [Ky](https://github.com/sindresorhus/ky)
-- Design from FE Mentor Pro
-- Favicon from [Icons8](https://icons8.com/icon/65324/clock)
+- [Day.js](https://day.js.org/en/)
+- [Svelte Legos](https://sveltelegos.com/) (that handy-dandy window size store)
+
+With a shoutout to [Icons8](https://icons8.com/icon/65324/clock) for the clock favicon.

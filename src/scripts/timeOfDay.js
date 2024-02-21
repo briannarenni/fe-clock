@@ -1,10 +1,11 @@
 import { derived } from 'svelte/store';
 import { userClockStore } from '@scripts/clockStores.js';
 
-export const icons = [
-  '/src/assets/icons/sun-icon.svg',
-  '/src/assets/icons/moon-icon.svg'
-]
+export const icons =
+{
+  day: '/src/assets/icons/sun-icon.svg',
+  night: '/src/assets/icons/moon-icon.svg'
+}
 
 const greetings = {
   morning: 'Good morning',

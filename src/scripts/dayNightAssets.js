@@ -1,15 +1,18 @@
 export const bkgImgs = {
   mobile: {
-    morning: '/src/assets/bkg-imgs/mobile-day.jpg',
-    night: '/src/assets/bkg-imgs/mobile-night.jpg'
+    morning: 'src/assets/bkg-imgs/mobile-day.jpg',
+    afternoon: 'src/assets/bkg-imgs/mobile-day.jpg',
+    night: 'src/assets/bkg-imgs/mobile-night.jpg'
   },
   tablet: {
-    morning: '/src/assets/bkg-imgs/tablet-day.jpg',
-    night: '/src/assets/bkg-imgs/tablet-night.jpg'
+    morning: 'src/assets/bkg-imgs/tablet-day.jpg',
+    afternoon: 'src/assets/bkg-imgs/tablet-day.jpg',
+    night: 'src/assets/bkg-imgs/tablet-night.jpg'
   },
   desktop: {
-    morning: '/src/assets/bkg-imgs/desktop-day.jpg',
-    night: '/src/assets/bkg-imgs/desktop-night.jpg'
+    morning: 'src/assets/bkg-imgs/desktop-day.jpg',
+    afternoon: 'src/assets/bkg-imgs/desktop-day.jpg',
+    night: 'src/assets/bkg-imgs/desktop-night.jpg'
   }
 };
 

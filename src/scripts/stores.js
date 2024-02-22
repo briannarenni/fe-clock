@@ -6,7 +6,7 @@ export const size = windowSizeStore();
 export const getTimeOfDay = () => {
   const now = new Date();
   const hours = now.getHours();
-  // * For testing
+  // * test hours
   // const hours = 19;
 
   if (hours >= 5 && hours < 12) {
@@ -45,13 +45,15 @@ export const quoteApiStore = writable({ quote: '', author: '' });
 export const geoApiStore = writable({ city: '', area: '', zoneCode: '', zoneName: '' });
 export const worldApiStore = writable({ abbr: '', dayOfWeek: 0, dayOfYear: 0, weekNumber: 0 });
 
+export const clockStore = writable(formatTime());
+setInterval(() => {
+  clockStore.set(formatTime());
+}, 1000);
+
 export const timeOfDayStore = writable(getTimeOfDay());
 setInterval(() => {
   timeOfDayStore.set(getTimeOfDay());
 }, 60000);
 
-export const clockStore = writable(formatTime());
-setInterval(() => {
-  clockStore.set(formatTime());
-}, 1000);
+
 

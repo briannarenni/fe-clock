@@ -1,5 +1,5 @@
 <script>
-  import { timeInfoStore } from '@scripts/stores.js';
+  import { worldApiStore } from '@scripts/stores.js';
 </script>
 
 <!-- TODO: Button -->

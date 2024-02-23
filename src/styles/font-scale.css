@@ -1,4 +1,4 @@
-/* Desktop font size */
+/* Desktop fonts */
 :root {
   --font-family: 'Inter', 'Helvetica', sans-serif;
   --font-base: 1rem;
@@ -7,30 +7,33 @@
   --font-h3: 2.22rem;
   --font-h4: 1.33rem;
   --font-h5: 1.1rem;
-  --font-h6: 0.83rem;
+  --font-h6: .83rem;
+  --font-btn: .88rem;
 }
 
-/* Tablet font size */
+/* Tablet fonts */
 @media (min-width: 768px) and (max-width: 1023px) {
   :root {
-    --font-h1: 9.72rem;
-    --font-h2: 2.22rem;
-    --font-h3: 1.78rem;
+    --font-h1: 9.7rem;
+    --font-h2: 2.2rem;
+    --font-h3: 1.7rem;
     --font-h4: var(--font-base);
     --font-h5: var(--font-base);
-    --font-h6: 0.83rem;
+    --font-h6: .72rem;
+    --font-btn: .88rem;
   }
 }
 
-/* Mobile font size */
+/* Mobile fonts */
 @media (max-width: 767px) {
   :root {
-    --font-base: 0.67rem;
-    --font-h1: 5rem;
+    --font-base: 0.66rem;
+    --font-h1: 5.5rem;
     --font-h2: 1.1rem;
-    --font-h3: 0.83rem;
-    --font-h4: 0.83rem;
-    --font-h5: 0.83rem;
-    --font-h6: 0.55rem;
+    --font-h3: .83rem;
+    --font-h4: .83rem;
+    --font-h5: .83rem;
+    --font-h6: .55rem;
+    --font-btn: .66rem;
   }
 }

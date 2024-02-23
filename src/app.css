@@ -6,7 +6,7 @@
   --black: #000000;
   --white: #FFFFFF;
   --stone: #303030;
-  --gray: #979797;
+  --gray: #787777;
   color-scheme: light dark;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -30,18 +30,21 @@ body {
 
 h1 {
   font-size: var(--font-h1);
-  margin-block: 0;
 }
 
 h2 {
   font-size: var(--font-h2);
-}
 
+}
 h3 {
   font-size: var(--font-h3);
+}
+
+h3,
+h4,
+h5 {
   text-transform: uppercase;
   letter-spacing: 3px;
-
 }
 
 h4 {
@@ -53,5 +56,15 @@ h5 {
 }
 
 h6 {
+  text-transform: uppercase;
+  letter-spacing: 2px;
   font-size: var(--font-h6);
+}
+
+button {
+  background-color: var(--white);
+  color: var(--gray);
+  font-size: var(--font-btn);
+  font-weight: bold;
+  text-transform: uppercase;
 }

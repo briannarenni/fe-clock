@@ -2,7 +2,6 @@
   import { geoApiStore } from '@scripts/stores.js';
   import { clockStore } from '@scripts/stores.js';
   import Greeting from '@components/Greeting.svelte';
-  import Drawer from '@containers/Drawer.svelte';
 </script>
 
 <main>
@@ -20,15 +19,23 @@
     {/if}
   </div>
 
-  <h3 class="location">in {$geoApiStore.city}, {$geoApiStore.area}</h3>
-
-  <!-- <Drawer /> -->
+  <h4 class="location">in {$geoApiStore.city}, {$geoApiStore.area}</h4>
 </main>
 
 <style>
+  main {
+    padding-block-start: var(--gap-lg);
+    padding-inline: var(--gap-lg);
+  }
+
   .clock {
     display: flex;
     gap: var(--gap-sm);
+    line-height: 1.3;
+  }
+
+  .location {
+    margin-block-end: var(--gap-lg);
   }
 
   /* 12-hour time alignment */

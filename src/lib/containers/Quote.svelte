@@ -1,7 +1,10 @@
 <script>
   import { onMount } from 'svelte';
+  import { slide } from 'svelte/transition';
   import { quoteApiStore } from '@scripts/stores.js';
   import { fetchQuote } from '@scripts/apiServices.js';
+
+  export let isDrawerOpen;
 
   async function getQuote() {
     const response = await fetchQuote();
@@ -13,8 +16,8 @@
   });
 </script>
 
-<article>
-  <div class="quote-wrap">
+{#if !isDrawerOpen}
+  <div class="quote-wrap" transition:slide={{ duration: 600, delay: 0 }}>
     <div class="quote">
       <!--
         {#if !$quoteApiStore.text}
@@ -33,13 +36,17 @@
       <img src="src/assets/icons/refresh-icon.svg" alt="Refresh quote" />
     </button>
   </div>
-</article>
+{:else}
+  <div></div>
+{/if}
 
 <style>
   .quote-wrap {
     display: flex;
     justify-content: space-evenly;
-    line-height: 22px;
+    line-height: 1rem;
+    padding-block-start: var(--gap-lg);
+    padding-inline: var(--gap-lg);
   }
 
   .quote {

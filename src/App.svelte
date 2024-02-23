@@ -1,10 +1,11 @@
 <script>
   import { onMount } from 'svelte';
-  import { fetchGeo } from '@scripts/apiServices.js';
-  import { bkgImgs } from '@scripts/dayNightAssets.js';
+  import { fetchGeo, fetchTime } from '@scripts/apiServices.js';
   import { size, geoApiStore, worldApiStore, timeOfDayStore } from '@scripts/stores.js';
+  import { bkgImgs } from '@scripts/dayNightAssets.js';
   import Quote from '@containers/Quote.svelte';
   import Clock from '@containers/Clock.svelte';
+  import Drawer from '@containers/Drawer.svelte';
 
   const getScreenType = (value) => {
     if (value <= 380) {
@@ -16,17 +17,17 @@
     }
   };
 
-  const setTime = async (timezone) => {
-    const response = await fetchTime(timezone);
-    worldApiStore.js.set({
-      abbr: response.abbreviation,
+  const setTime = async () => {
+    const response = await fetchTime();
+    worldApiStore.set({
+      timeZone: response.timezone,
       dayOfWeek: response.day_of_week,
       dayOfYear: response.day_of_year,
       weekNumber: response.week_number
     });
   };
 
-  export const setGeo = async () => {
+  const setGeo = async () => {
     const response = await fetchGeo();
     geoApiStore.set({
       city: response.city.name,
@@ -34,33 +35,32 @@
       zoneCode: response.time.code,
       zoneName: response.time.timezone
     });
-    const { timezone } = $geoApiStore;
-    if (timezone) {
-      setTime(timezone);
-    }
   };
+
+  let isDrawerOpen = false;
+  const toggleDrawer = () => (isDrawerOpen = !isDrawerOpen);
 
   $: screenType = getScreenType($size.width);
   $: bkgImgUrl = bkgImgs[screenType][$timeOfDayStore];
   $: bkgStyle = `background-image: url(${bkgImgUrl}); background-size: cover; background-repeat: no-repeat; background-color: var(--black);`;
 
-  onMount(async () => setGeo());
+  onMount(async () => {
+    setGeo();
+    setTime();
+  });
 </script>
 
 <div class="container" style={bkgStyle}>
-  <Quote />
+  <Quote {isDrawerOpen} />
   <Clock />
+  <Drawer {isDrawerOpen} {toggleDrawer} />
 </div>
 
 <style>
   .container {
-    position: relative;
     display: grid;
     grid-template-rows: 1fr auto;
-    gap: var(--gap-md);
     color: var(--white);
     height: 100vh;
-    padding-block: var(--gap-xl);
-    padding-inline: var(--gap-lg);
   }
 </style>

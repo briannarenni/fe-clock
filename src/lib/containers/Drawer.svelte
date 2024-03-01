@@ -23,7 +23,7 @@
 
 {#if isDrawerOpen}
   <section class="overlay gradient">
-    <div class="info-drawer" transition:slide={{ duration: 600, delay: 0 }}>
+    <div class="info-drawer" transition:slide={{ duration: 700, delay: 0 }}>
       <section class="info-group">
         <!-- * Trims text on mobile screens -->
         {#if $size.width <= 399}

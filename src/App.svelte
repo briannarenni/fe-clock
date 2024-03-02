@@ -50,15 +50,21 @@
 </script>
 
 <div class="container" style={bkgStyle}>
-  <Quote {isDrawerOpen} />
-  <Clock />
-  <Drawer {isDrawerOpen} {toggleDrawer} />
+  <left>
+    <Quote {isDrawerOpen} />
+  </left>
+  <div class="left">
+    <Clock />
+  </div>
+  <div class="right">
+    <Drawer {isDrawerOpen} {toggleDrawer} />
+  </div>
 </div>
 
 <style>
   .container {
     display: grid;
-    grid-template-rows: 1fr auto;
+    grid-template-rows: 1fr 1fr;
     color: var(--white);
     height: 100vh;
   }

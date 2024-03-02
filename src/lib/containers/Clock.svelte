@@ -88,4 +88,11 @@
   .zonecode {
     line-height: 28px;
   }
+
+  @media screen and (min-width: 1024px) {
+    main {
+      padding-block-start: var(--gap-sm);
+      padding-inline: var(--gap-lg);
+    }
+  }
 </style>

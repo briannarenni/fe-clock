@@ -8,15 +8,21 @@
   --font-h4: 1.33rem;
   --font-h5: 1.1rem;
   --font-h6: .83rem;
-  /* Specific classes */
-  --quote-font: 1.1rem;
-  --greeting-font: 1.1rem;
-  --time-font: 11.11rem;
-  --zone-font: 2.22rem;
-  --location-font: 1.3rem;
-  --title-font: .83rem;
-  --info-font: 3.1rem;
-  --btn-font: .88rem;
+}
+
+/* Desktop fonts */
+@media (min-width: 1024px) {
+  :root {
+    /* Specific classes */
+    --quote-font: 1.1rem;
+    --greeting-font: 1.1rem;
+    --time-font: 10rem;
+    --zone-font: 1.5rem;
+    --location-font: 1.1rem;
+    --title-font: .83rem;
+    --info-font: 2.8rem;
+    --btn-font: .88rem;
+  }
 }
 
 /* Tablet fonts */
@@ -32,10 +38,11 @@
     --quote-font: 1rem;
     --greeting-font: 1.1rem;
     --time-font: 9.7rem;
-    --zone-font: 1.7rem;
+    --zone-font: 1.2rem;
     --location-font: 1rem;
     --title-font: .72rem;
     --info-font: 2.2rem;
+    --btn-font: .88rem;
   }
 }
 
@@ -51,7 +58,7 @@
     --quote-font: 1rem;
     --greeting-font: 1rem;
     --time-font: 6.5rem;
-    --zone-font: 1rem;
+    --zone-font: 1.2rem;
     --location-font: .92rem;
     --title-font: .66rem;
     --info-font: 1.8rem;

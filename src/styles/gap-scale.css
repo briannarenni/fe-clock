@@ -49,16 +49,16 @@
   }
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 1300px) {
   :root {
     --icon-width: 1.5rem;
 
     /* Resp. Gap Scale */
     --gap-sm: calc(1rem * 1.75);
     --gap-md: calc(1rem * 2);
-    --gap-lg: calc(1rem * 2.5);
-    --gap-xl: calc(1rem * 3);
-    --gap-xxl: calc(1rem * 3.5);
+    --gap-lg: calc(1rem * 2.1);
+    --gap-xl: calc(1rem * 2.5);
+    --gap-xxl: calc(1rem * 3.3);
 
     /* Resp. Spacing Scale */
     --space-xs: 0.4rem;

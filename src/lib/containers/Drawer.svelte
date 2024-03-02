@@ -56,6 +56,7 @@
 <style>
   .expand-btn {
     max-width: fit-content;
+    max-height: 45px;
     display: inline-flex;
     align-items: center;
     border-radius: 25px;
@@ -74,13 +75,13 @@
   }
 
   .info-drawer {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr;
     gap: var(--gap-sm);
     width: 100%;
     position: relative;
     color: var(--stone);
-    padding-block: var(--gap-xxl);
+    padding-block: var(--gap-md);
     padding-inline: var(--gap-md);
   }
 
@@ -110,37 +111,51 @@
   }
 
   /* QUERIES */
-
   @media screen and (min-width: 650px) {
     .expand-btn {
       letter-spacing: 5px;
     }
 
     .info-drawer {
+      grid-template-columns: auto auto;
+      gap: var(--gap-lg);
+      padding-inline: var(--gap-xxl);
     }
 
     .info-group {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+
+  @media screen and (min-width: 1024px) {
+    .info-drawer {
+      gap: var(--gap-sm);
+      padding-block: var(--gap-sm);
+    }
+  }
+
+  @media screen and (min-width: 1200px) {
+    .expand-btn {
+      margin-block-end: var(--gap-lg);
     }
   }
 
   /* BKG OVERLAYS */
+  .gradient {
+    height: auto;
+    background: #fffffd;
+    background: radial-gradient(at center, #fffffd, #ababab);
+  }
+
   .overlay {
     position: relative;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
     opacity: 1;
     z-index: 1000;
     display: flex;
     justify-content: center;
     align-items: center;
-  }
-
-  .gradient {
-    width: 100%;
-    height: 100%;
-    background: #fffffd;
-    background: radial-gradient(at center, #fffffd, #ababab);
   }
 </style>

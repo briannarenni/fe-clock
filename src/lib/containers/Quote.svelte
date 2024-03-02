@@ -43,7 +43,7 @@
     </button>
   </div>
 {:else}
-  <div></div>
+  <div class="grid-div"></div>
 {/if}
 
 <style>
@@ -72,6 +72,11 @@
     cursor: pointer;
   }
 
+  .grid-div {
+    min-height: 1px;
+    max-height: 10px;
+  }
+
   /* Todo: Container? */
   @media (min-width: 600px) {
     .quote-wrap {
@@ -79,9 +84,9 @@
     }
   }
 
-  /* @media (min-width: 1024px) {
+  @media (min-width: 1024px) {
     .quote-wrap {
-      max-width: 75%;
+      max-width: 70vw;
     }
-  } */
+  }
 </style>

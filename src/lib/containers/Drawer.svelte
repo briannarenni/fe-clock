@@ -23,7 +23,7 @@
 
 {#if isDrawerOpen}
   <section class="overlay gradient">
-    <div class="info-drawer" transition:slide={{ duration: 700, delay: 0 }}>
+    <div class="info-drawer" transition:slide={{ duration: 650, delay: 0 }}>
       <section class="info-group">
         <!-- * Trims text on mobile screens -->
         {#if $size.width <= 399}
@@ -71,6 +71,7 @@
   .btn-icon {
     width: 32px;
   }
+
   .info-drawer {
     display: flex;
     flex-direction: column;
@@ -92,6 +93,14 @@
   .title {
     font-weight: normal;
     margin-block: 0;
+  }
+
+  .expand-btn:hover {
+    cursor: pointer;
+  }
+
+  .btn-icon:hover {
+    filter: grayscale(100%) brightness(95%) contrast(60%);
   }
 
   /* Bkg overlay styles */

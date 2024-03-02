@@ -17,7 +17,7 @@
 </script>
 
 {#if !isDrawerOpen}
-  <div class="quote-wrap" transition:slide={{ duration: 700, delay: 0 }}>
+  <div class="quote-wrap" transition:slide={{ duration: 650, delay: 0 }}>
     <div class="quote">
       <!--
         {#if !$quoteApiStore.text}

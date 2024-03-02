@@ -27,31 +27,32 @@
       <section class="info-group">
         <!-- * Trims text on mobile screens -->
         {#if $size.width <= 399}
-          <h6 class="title">Timezone</h6>
+          <h6 class="category">Timezone</h6>
         {:else if $size.width >= 400}
-          <h6 class="title">Current timezone</h6>
+          <h6 class="category">Current timezone</h6>
         {/if}
         <h2 class="info">{currTimeZone}</h2>
       </section>
 
       <section class="info-group">
-        <h6 class="title">Day of Year</h6>
-        <h2>{dayOfYear}</h2>
+        <h6 class="category">Day of Year</h6>
+        <h2 class="info">{dayOfYear}</h2>
       </section>
 
       <section class="info-group">
-        <h6 class="title">Day of Week</h6>
-        <h2>{dayOfWeek}</h2>
+        <h6 class="category">Day of Week</h6>
+        <h2 class="info">{dayOfWeek}</h2>
       </section>
 
       <section class="info-group">
-        <h6 class="title">Week Number</h6>
-        <h2>{weekNumber}</h2>
+        <h6 class="category">Week Number</h6>
+        <h2 class="info">{weekNumber}</h2>
       </section>
     </div>
   </section>
 {/if}
 
+<!-- TODO: Containers? -->
 <style>
   .expand-btn {
     max-width: fit-content;
@@ -90,9 +91,14 @@
     white-space: nowrap;
   }
 
-  .title {
+  .category {
     font-weight: normal;
+    font-size: var(--title-font);
     margin-block: 0;
+  }
+
+  .info {
+    font-size: var(--info-font);
   }
 
   .expand-btn:hover {
@@ -103,7 +109,21 @@
     filter: grayscale(100%) brightness(95%) contrast(60%);
   }
 
-  /* Bkg overlay styles */
+  /* QUERIES */
+
+  @media screen and (min-width: 650px) {
+    .expand-btn {
+      letter-spacing: 5px;
+    }
+
+    .info-drawer {
+    }
+
+    .info-group {
+    }
+  }
+
+  /* BKG OVERLAYS */
   .overlay {
     position: relative;
     top: 0;
@@ -122,11 +142,5 @@
     height: 100%;
     background: #fffffd;
     background: radial-gradient(at center, #fffffd, #ababab);
-  }
-
-  @media screen and (min-width: 768px) {
-    .expand-btn {
-      letter-spacing: 5px;
-    }
   }
 </style>

@@ -15,9 +15,10 @@
     quoteApiStore.set({ quote: response.text, author: response.author });
   };
 
-  onMount(async () => {
-    getQuote();
-  });
+  // ! Uncomment when done!
+  // onMount(async () => {
+  //   getQuote();
+  // });
 </script>
 
 {#if !isDrawerOpen}
@@ -56,6 +57,7 @@
 
   .quote {
     width: 90%;
+    font-size: var(--quote-font);
   }
 
   .author {
@@ -69,4 +71,17 @@
     border: none;
     cursor: pointer;
   }
+
+  /* Todo: Container? */
+  @media (min-width: 600px) {
+    .quote-wrap {
+      max-width: 95%;
+    }
+  }
+
+  /* @media (min-width: 1024px) {
+    .quote-wrap {
+      max-width: 75%;
+    }
+  } */
 </style>

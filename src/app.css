@@ -64,7 +64,7 @@ h6 {
 button {
   background-color: var(--white);
   color: var(--gray);
-  font-size: var(--font-btn);
+  font-size: var(--btn-font);
   font-weight: bold;
   text-transform: uppercase;
 }

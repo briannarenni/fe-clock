@@ -14,24 +14,24 @@
   <Greeting />
 
   <div class="clock">
-    <h1 class="user-time">{time}</h1>
+    <h1 class="time">{time}</h1>
     {#if $clockStore.currentPeriod}
       <div class="info-12hr">
         {#if !period}
           <SkeletonText effect="wave">PM</SkeletonText>
         {:else}
-          <h2 class="user-period">{period}</h2>
+          <h2 class="period">{period}</h2>
         {/if}
         {#if !zoneCode}
           <SkeletonText effect="wave">XXX</SkeletonText>
         {:else}
-          <p class="zone-code">{zoneCode}</p>
+          <h2 class="zonecode">{zoneCode}</h2>
         {/if}
       </div>
     {:else if !zoneCode}
       <SkeletonText effect="wave">XXX</SkeletonText>
     {:else}
-      <h5 class="info-24hr">{zoneCode}</h5>
+      <h2 class="info-24hr zonecode">{zoneCode}</h2>
     {/if}
   </div>
   {#if !city || !area}
@@ -70,16 +70,22 @@
     font-weight: normal;
   }
 
-  .user-time {
+  .time {
     letter-spacing: -3px;
+    font-size: var(--time-font);
   }
 
-  .zone-code {
-    font-size: 15px;
+  .zonecode {
+    font-weight: normal;
+  }
+
+  .zonecode,
+  .period {
+    font-size: var(--zone-font);
   }
 
   .location,
-  .zone-code {
+  .zonecode {
     line-height: 28px;
   }
 </style>

@@ -8,32 +8,76 @@
   --font-h4: 1.33rem;
   --font-h5: 1.1rem;
   --font-h6: .83rem;
-  --font-btn: .88rem;
+  /* Specific classes */
+  --quote-font: 1.1rem;
+  --greeting-font: 1.1rem;
+  --time-font: 11.11rem;
+  --zone-font: 2.22rem;
+  --location-font: 1.3rem;
+  --title-font: .83rem;
+  --info-font: 3.1rem;
+  --btn-font: .88rem;
 }
 
 /* Tablet fonts */
-@media (min-width: 768px) and (max-width: 1023px) {
+@media (min-width: 750px) and (max-width: 1023px) {
   :root {
     --font-h1: 9.7rem;
     --font-h2: 2.2rem;
-    --font-h3: 1.7rem;
+    --font-h3: 1.1rem;
     --font-h4: var(--font-base);
     --font-h5: var(--font-base);
     --font-h6: .72rem;
-    --font-btn: .88rem;
+    /* Specific classes */
+    --quote-font: 1rem;
+    --greeting-font: 1.1rem;
+    --time-font: 9.7rem;
+    --zone-font: 1.7rem;
+    --location-font: 1rem;
+    --title-font: .72rem;
+    --info-font: 2.2rem;
+  }
+}
+
+@media (min-width: 650px) and (max-width: 749px) {
+  :root {
+    --font-h1: 8.3rem;
+    --font-h2: 2rem;
+    --font-h3: 1.1rem;
+    --font-h4: var(--font-base);
+    --font-h5: var(--font-base);
+    --font-h6: .65rem;
+    /* Specific classes */
+    --quote-font: 1rem;
+    --greeting-font: 1rem;
+    --time-font: 6.5rem;
+    --zone-font: 1rem;
+    --location-font: .92rem;
+    --title-font: .66rem;
+    --info-font: 1.8rem;
+    --btn-font: .75rem;
   }
 }
 
 /* Mobile fonts */
-@media (max-width: 767px) {
+@media (max-width: 649px) {
   :root {
     --font-base: 0.66rem;
     --font-h1: 5.5rem;
     --font-h2: 1.1rem;
-    --font-h3: .83rem;
+    --font-h3: .833rem;
     --font-h4: .83rem;
     --font-h5: .83rem;
     --font-h6: .55rem;
-    --font-btn: .66rem;
+    --btn-font: .66rem;
+    /* Specific classes */
+    --quote-font: .66rem;
+    --greeting-font: .83rem;
+    --time-font: 5.5rem;
+    --zone-font: .83rem;
+    --location-font: .83rem;
+    --title-font: .55rem;
+    --info-font: 1.1rem;
+
   }
 }

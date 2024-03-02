@@ -38,6 +38,7 @@
 
   .greeting {
     font-weight: normal;
+    font-size: var(--greeting-font);
   }
 
   .icon {

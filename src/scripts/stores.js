@@ -40,8 +40,12 @@ export const formatTime = () => {
   }
   return { currentTime, currentPeriod };
 }
+// ! Uncomment when done!
+// export const quoteApiStore = writable({ quote: '', author: '' });
+export const quoteApiStore = writable({ quote: 'It always helps to be a good programmer. It is important to like computers and to be able to think of things people would want to do with their computers.', author: 'Bill Budge' });
 
-export const quoteApiStore = writable({ quote: '', author: '' });
+
+
 export const geoApiStore = writable({ city: '', area: '', zoneCode: '' });
 export const worldApiStore = writable({ timezone: '', dayOfWeek: 0, dayOfYear: 0, weekNumber: 0 });
 

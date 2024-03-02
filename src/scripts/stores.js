@@ -6,7 +6,7 @@ export const size = windowSizeStore();
 export const getTimeOfDay = () => {
   const now = new Date();
   const hours = now.getHours();
-  // * tests evening hours
+  // * test evening hours
   // const hours = 19;
 
   if (hours >= 5 && hours < 12) {
@@ -42,8 +42,8 @@ export const formatTime = () => {
 }
 
 export const quoteApiStore = writable({ quote: '', author: '' });
-export const geoApiStore = writable({ city: '', area: '', zoneCode: '', zoneName: '' });
-export const worldApiStore = writable({ timeZone: '', dayOfWeek: 0, dayOfYear: 0, weekNumber: 0 });
+export const geoApiStore = writable({ city: '', area: '', zoneCode: '' });
+export const worldApiStore = writable({ timezone: '', dayOfWeek: 0, dayOfYear: 0, weekNumber: 0 });
 
 export const clockStore = writable(formatTime());
 setInterval(() => {

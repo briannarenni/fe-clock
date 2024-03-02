@@ -20,7 +20,7 @@
   const setTime = async () => {
     const response = await fetchTime();
     worldApiStore.set({
-      timeZone: response.timezone,
+      timezone: response.timezone,
       dayOfWeek: response.day_of_week,
       dayOfYear: response.day_of_year,
       weekNumber: response.week_number
@@ -32,8 +32,7 @@
     geoApiStore.set({
       city: response.city.name,
       area: response.area.name,
-      zoneCode: response.time.code,
-      zoneName: response.time.timezone
+      zoneCode: response.time.code
     });
   };
 

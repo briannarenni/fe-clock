@@ -1,25 +1,44 @@
 <script>
-  import { geoApiStore } from '@scripts/stores.js';
-  import { clockStore } from '@scripts/stores.js';
+  import { SkeletonText } from 'skeleton-elements/svelte';
+  import { clockStore, geoApiStore } from '@scripts/stores.js';
   import Greeting from '@components/Greeting.svelte';
+
+  $: time = $clockStore.currentTime;
+  $: period = $clockStore.currentPeriod;
+  $: zoneCode = $geoApiStore.zoneCode;
+  $: city = $geoApiStore.city;
+  $: area = $geoApiStore.area;
 </script>
 
 <main>
   <Greeting />
 
   <div class="clock">
-    <h1 class="user-time">{$clockStore.currentTime}</h1>
+    <h1 class="user-time">{time}</h1>
     {#if $clockStore.currentPeriod}
       <div class="info-12hr">
-        <h2 class="user-period">{$clockStore.currentPeriod}</h2>
-        <p class="zone-code">{$geoApiStore.zoneCode}</p>
+        {#if !period}
+          <SkeletonText effect="wave">PM</SkeletonText>
+        {:else}
+          <h2 class="user-period">{period}</h2>
+        {/if}
+        {#if !zoneCode}
+          <SkeletonText effect="wave">XXX</SkeletonText>
+        {:else}
+          <p class="zone-code">{zoneCode}</p>
+        {/if}
       </div>
+    {:else if !zoneCode}
+      <SkeletonText effect="wave">XXX</SkeletonText>
     {:else}
-      <h5 class="info-24hr">{$geoApiStore.zoneCode}</h5>
+      <h5 class="info-24hr">{zoneCode}</h5>
     {/if}
   </div>
-
-  <h4 class="location">in {$geoApiStore.city}, {$geoApiStore.area}</h4>
+  {#if !city || !area}
+    <SkeletonText effect="wave">Lorem, ipsum dolor</SkeletonText>
+  {:else}
+    <h4 class="location">in {city}, {area}</h4>
+  {/if}
 </main>
 
 <style>

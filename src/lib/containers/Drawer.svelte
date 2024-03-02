@@ -7,7 +7,7 @@
 
   const formatTimezone = (str) => str.replace(/_/g, ' ');
 
-  $: currTimeZone = formatTimezone($worldApiStore.timeZone);
+  $: currTimeZone = formatTimezone($worldApiStore.timezone);
   $: dayOfWeek = $worldApiStore.dayOfWeek;
   $: dayOfYear = $worldApiStore.dayOfYear;
   $: weekNumber = $worldApiStore.weekNumber;

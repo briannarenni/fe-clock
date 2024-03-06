@@ -15,10 +15,9 @@
     quoteApiStore.set({ quote: response.text, author: response.author });
   };
 
-  // ! Uncomment when done!
-  // onMount(async () => {
-  //   getQuote();
-  // });
+  onMount(async () => {
+    getQuote();
+  });
 </script>
 
 {#if !isDrawerOpen}

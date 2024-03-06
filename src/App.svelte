@@ -3,7 +3,7 @@
   import { fetchGeo, fetchTime } from '@scripts/apiServices.js';
   import { size, geoApiStore, worldApiStore, timeOfDayStore } from '@scripts/stores.js';
   import { bkgImgs } from '@scripts/dayNightAssets.js';
-    import ToggleBtn from '@components/ToggleBtn.svelte';
+  import ToggleBtn from '@components/ToggleBtn.svelte';
 
   import Quote from '@containers/Quote.svelte';
   import Clock from '@containers/Clock.svelte';
@@ -52,7 +52,7 @@
 </script>
 
 <div class="container" style={bkgStyle}>
-    <ToggleBtn />
+  <ToggleBtn />
   <Quote {isDrawerOpen} />
 
   <Clock />

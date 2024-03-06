@@ -3,6 +3,8 @@
   import { fetchGeo, fetchTime } from '@scripts/apiServices.js';
   import { size, geoApiStore, worldApiStore, timeOfDayStore } from '@scripts/stores.js';
   import { bkgImgs } from '@scripts/dayNightAssets.js';
+    import ToggleBtn from '@components/ToggleBtn.svelte';
+
   import Quote from '@containers/Quote.svelte';
   import Clock from '@containers/Clock.svelte';
   import Drawer from '@containers/Drawer.svelte';
@@ -50,21 +52,18 @@
 </script>
 
 <div class="container" style={bkgStyle}>
-  <left>
-    <Quote {isDrawerOpen} />
-  </left>
-  <div class="left">
-    <Clock />
-  </div>
-  <div class="right">
-    <Drawer {isDrawerOpen} {toggleDrawer} />
-  </div>
+    <ToggleBtn />
+  <Quote {isDrawerOpen} />
+
+  <Clock />
+
+  <Drawer {isDrawerOpen} {toggleDrawer} />
 </div>
 
 <style>
   .container {
     display: grid;
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: auto 1fr 1fr auto;
     color: var(--white);
     height: 100vh;
   }

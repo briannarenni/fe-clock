@@ -51,7 +51,7 @@
     display: flex;
     justify-content: space-evenly;
     line-height: 1rem;
-    padding-block-start: var(--gap-lg);
+    padding-block-start: var(--gap-md);
     padding-inline: var(--gap-lg);
   }
 
@@ -86,7 +86,7 @@
 
   @media (min-width: 1024px) {
     .quote-wrap {
-      max-width: 70vw;
+      max-width: 80vw;
     }
   }
 </style>

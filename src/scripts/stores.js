@@ -1,10 +1,17 @@
 import { writable } from 'svelte/store';
 import { windowSizeStore } from 'svelte-legos';
 
+const now = new Date();
+const initLocale = new Intl.DateTimeFormat([], {
+  hour: '2-digit',
+  minute: '2-digit',
+  hour12: undefined,
+}).resolvedOptions().hourCycle.startsWith('h23') ? false : true;
+
+export const format12HrStore = writable(initLocale);
 export const size = windowSizeStore();
 
 export const getTimeOfDay = () => {
-  const now = new Date();
   const hours = now.getHours();
   // * test evening hours
   // const hours = 19;
@@ -18,41 +25,34 @@ export const getTimeOfDay = () => {
   }
 }
 
-export const formatTime = () => {
-  const now = new Date();
-  const hourCycle = new Intl.DateTimeFormat([], {
-    hour: '2-digit',
-    minute: '2-digit',
-    hour12: undefined,
-  }).resolvedOptions().hourCycle.startsWith('h23') ? false : true;
-
+export const getUserTime = (bool) => {
   let timeString = now.toLocaleTimeString([],
-    { hour: '2-digit', minute: '2-digit', hour12: hourCycle });
+    { hour: '2-digit', minute: '2-digit', hour12: bool });
   let currentTime;
-  let currentPeriod = '';
+  let currentPeriod;
 
   // Separate time & period for 12-hour format
-  if (hourCycle) {
+  if (format12HrStore) {
     currentTime = timeString.slice(0, -3);
     currentPeriod = timeString.slice(-2);
   } else {
     currentTime = timeString;
+    currentPeriod = '';
   }
   return { currentTime, currentPeriod };
 }
+
 // ! Uncomment when done!
 // export const quoteApiStore = writable({ quote: '', author: '' });
 export const quoteApiStore = writable({ quote: 'It always helps to be a good programmer. It is important to like computers and to be able to think of things people would want to do with their computers.', author: 'Bill Budge' });
 
-
-
 export const geoApiStore = writable({ city: '', area: '', zoneCode: '' });
 export const worldApiStore = writable({ timezone: '', dayOfWeek: 0, dayOfYear: 0, weekNumber: 0 });
 
-export const clockStore = writable(formatTime());
+export const clockStore = writable(getUserTime(format12HrStore));
 setInterval(() => {
-  clockStore.set(formatTime());
-}, 1000);
+  clockStore.set(getUserTime(format12HrStore));
+}, 60000);
 
 export const timeOfDayStore = writable(getTimeOfDay());
 setInterval(() => {

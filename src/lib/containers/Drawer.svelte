@@ -52,7 +52,6 @@
   </section>
 {/if}
 
-<!-- TODO: Containers? -->
 <style>
   .expand-btn {
     max-width: fit-content;

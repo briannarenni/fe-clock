@@ -15,7 +15,7 @@
 
   <div class="clock">
     <h1 class="time">{time}</h1>
-    {#if $clockStore.currentPeriod}
+    {#if period}
       <div class="info-12hr">
         {#if !period}
           <SkeletonText effect="wave">PM</SkeletonText>

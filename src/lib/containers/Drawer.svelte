@@ -13,7 +13,7 @@
   $: weekNumber = $worldApiStore.weekNumber;
 
   $: btnText = isDrawerOpen ? 'Less' : 'More';
-  $: iconSrc = isDrawerOpen ? 'src/assets/icons/arrow-up.svg' : 'src/assets/icons/arrow-down.svg';
+  $: iconSrc = isDrawerOpen ? 'assets/icons/arrow-up.svg' : 'assets/icons/arrow-down.svg';
 </script>
 
 <button class="expand-btn" on:click={toggleDrawer}>
@@ -136,6 +136,7 @@
 
   @media screen and (min-width: 1200px) {
     .expand-btn {
+      letter-spacing: 3px;
       margin-block-end: var(--gap-lg);
     }
   }

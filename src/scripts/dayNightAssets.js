@@ -1,24 +1,24 @@
 export const bkgImgs = {
   mobile: {
-    morning: 'src/assets/bkg-imgs/mobile-day.jpg',
-    afternoon: 'src/assets/bkg-imgs/mobile-day.jpg',
-    night: 'src/assets/bkg-imgs/mobile-night.jpg'
+    morning: 'assets/bkg-imgs/mobile-day.jpg',
+    afternoon: 'assets/bkg-imgs/mobile-day.jpg',
+    night: 'assets/bkg-imgs/mobile-night.jpg'
   },
   tablet: {
-    morning: 'src/assets/bkg-imgs/tablet-day.jpg',
-    afternoon: 'src/assets/bkg-imgs/tablet-day.jpg',
-    night: 'src/assets/bkg-imgs/tablet-night.jpg'
+    morning: 'assets/bkg-imgs/tablet-day.jpg',
+    afternoon: 'assets/bkg-imgs/tablet-day.jpg',
+    night: 'assets/bkg-imgs/tablet-night.jpg'
   },
   desktop: {
-    morning: 'src/assets/bkg-imgs/desktop-day.jpg',
-    afternoon: 'src/assets/bkg-imgs/desktop-day.jpg',
-    night: 'src/assets/bkg-imgs/desktop-night.jpg'
+    morning: 'assets/bkg-imgs/desktop-day.jpg',
+    afternoon: 'assets/bkg-imgs/desktop-day.jpg',
+    night: 'assets/bkg-imgs/desktop-night.jpg'
   }
 };
 
 export const icons = {
-  morning: 'src/assets/icons/sun-icon.svg',
-  night: 'src/assets/icons/moon-icon.svg'
+  morning: 'assets/icons/sun-icon.svg',
+  night: 'assets/icons/moon-icon.svg'
 };
 
 export const greetings = {

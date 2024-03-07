@@ -38,7 +38,7 @@
     </div>
 
     <button on:click={getQuote} class="refresh-btn">
-      <img src="src/assets/icons/refresh-icon.svg" alt="Refresh quote" />
+      <img src="assets/icons/refresh-icon.svg" alt="Refresh quote" />
     </button>
   </div>
 {:else}

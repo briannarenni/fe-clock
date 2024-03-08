@@ -7,7 +7,7 @@ export default defineConfig({
   server: {
     open: true
   },
-  base: '/fe-clock/',
+  base: isProduction ? '/fe-clock/' : '/fe-clock/',
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './'),

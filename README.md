@@ -1,5 +1,5 @@
 # Dynamic Clock App
-A new challenge from Frontend Mentor Pro, built with SvelteJS & Vite.
+A new challenge from Frontend Mentor Pro, built with SvelteJS & Vite and deployed with Netlify.
 
 ## The Challenge ✅
 

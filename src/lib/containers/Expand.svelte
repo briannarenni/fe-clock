@@ -1,9 +1,9 @@
 <script>
-  import { size, worldApiStore } from '@scripts/stores.js';
   import { slide } from 'svelte/transition';
+  import { size, worldApiStore } from '@scripts/stores.js';
 
-  export let isDrawerOpen;
-  export let toggleDrawer;
+  export let isExpandOpen;
+  export let toggleExpand;
 
   const formatTimezone = (str) => str.replace(/_/g, ' ');
 
@@ -12,43 +12,41 @@
   $: dayOfYear = $worldApiStore.dayOfYear;
   $: weekNumber = $worldApiStore.weekNumber;
 
-  $: btnText = isDrawerOpen ? 'Less' : 'More';
-  $: iconSrc = isDrawerOpen ? 'assets/icons/arrow-up.svg' : 'assets/icons/arrow-down.svg';
+  $: btnText = isExpandOpen ? 'Less' : 'More';
+  $: iconSrc = isExpandOpen ? 'assets/icons/arrow-up.svg' : 'assets/icons/arrow-down.svg';
 </script>
 
-<button class="expand-btn" on:click={toggleDrawer}>
+<button class="expand-btn" on:click={toggleExpand}>
   <p class="btn-text">{btnText}</p>
-  <img class="btn-icon" src={iconSrc} alt="Expand/Collapse" />
+  <img class="btn-icon" src={iconSrc} alt="Show/hide more info" />
 </button>
 
-{#if isDrawerOpen}
-  <section class="overlay gradient">
-    <div class="info-drawer" transition:slide={{ duration: 650, delay: 0 }}>
-      <section class="info-group">
-        <!-- * Trims text on mobile screens -->
-        {#if $size.width <= 399}
-          <h6 class="category">Timezone</h6>
-        {:else if $size.width >= 400}
-          <h6 class="category">Current timezone</h6>
-        {/if}
-        <h2 class="info">{currTimeZone}</h2>
-      </section>
+{#if isExpandOpen}
+  <section class="expand-info" transition:slide={{ duration: 650, delay: 0 }}>
+    <section class="info-group">
+      <!-- * Trims text on mobile screens -->
+      {#if $size.width <= 399}
+        <h6 class="category">Timezone</h6>
+      {:else if $size.width >= 400}
+        <h6 class="category">Current timezone</h6>
+      {/if}
+      <h2 class="info">{currTimeZone}</h2>
+    </section>
 
-      <section class="info-group">
-        <h6 class="category">Day of Year</h6>
-        <h2 class="info">{dayOfYear}</h2>
-      </section>
+    <section class="info-group">
+      <h6 class="category">Day of Year</h6>
+      <h2 class="info">{dayOfYear}</h2>
+    </section>
 
-      <section class="info-group">
-        <h6 class="category">Day of Week</h6>
-        <h2 class="info">{dayOfWeek}</h2>
-      </section>
+    <section class="info-group">
+      <h6 class="category">Day of Week</h6>
+      <h2 class="info">{dayOfWeek}</h2>
+    </section>
 
-      <section class="info-group">
-        <h6 class="category">Week Number</h6>
-        <h2 class="info">{weekNumber}</h2>
-      </section>
-    </div>
+    <section class="info-group">
+      <h6 class="category">Week Number</h6>
+      <h2 class="info">{weekNumber}</h2>
+    </section>
   </section>
 {/if}
 
@@ -73,15 +71,16 @@
     width: 32px;
   }
 
-  .info-drawer {
+  .expand-info {
+    width: 100%;
     display: grid;
     grid-template-columns: 1fr;
     gap: var(--gap-sm);
-    width: 100%;
-    position: relative;
     color: var(--stone);
     padding-block: var(--gap-md);
     padding-inline: var(--gap-md);
+    background: #fffffd;
+    background: radial-gradient(at center, #fffffd, #ababab);
   }
 
   .info-group {
@@ -115,7 +114,7 @@
       letter-spacing: 5px;
     }
 
-    .info-drawer {
+    .expand-info {
       grid-template-columns: auto auto;
       gap: var(--gap-lg);
       padding-inline: var(--gap-xxl);
@@ -128,7 +127,7 @@
   }
 
   @media screen and (min-width: 1024px) {
-    .info-drawer {
+    .expand-info {
       gap: var(--gap-sm);
       padding-block: var(--gap-sm);
     }
@@ -139,23 +138,5 @@
       letter-spacing: 3px;
       margin-block-end: var(--gap-lg);
     }
-  }
-
-  /* BKG OVERLAYS */
-  .gradient {
-    height: auto;
-    background: #fffffd;
-    background: radial-gradient(at center, #fffffd, #ababab);
-  }
-
-  .overlay {
-    position: relative;
-    top: 0;
-    left: 0;
-    opacity: 1;
-    z-index: 1000;
-    display: flex;
-    justify-content: center;
-    align-items: center;
   }
 </style>

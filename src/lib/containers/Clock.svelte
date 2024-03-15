@@ -18,7 +18,7 @@
     {#if period}
       <div class="info-12hr">
         {#if !period}
-          <SkeletonText effect="wave">PM</SkeletonText>
+          <SkeletonText effect="wave">{period}</SkeletonText>
         {:else}
           <h2 class="period">{period}</h2>
         {/if}

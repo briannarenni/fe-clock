@@ -1,45 +1,40 @@
 <script>
-  import { format12HrStore, getUserTime, clockStore } from '@scripts/stores.js';
+  import { fade } from 'svelte/transition';
+  import { formatBoolStore, getUserTime, clockStore } from '@scripts/stores.js';
 
   const toggleFormat = () => {
-    format12HrStore.update((value) => !value);
-
-    if ($format12HrStore) {
-      clockStore.update((value) => getUserTime(value));
-    } else {
-      clockStore.update((clock) => ({ ...clock, currentPeriod: '' }));
-    }
+    formatBoolStore.update((value) => !value);
+    formatBoolStore.subscribe((value) => {
+      clockStore.set(getUserTime(value));
+    });
   };
 </script>
 
 <div class="toggle-wrap">
-  <span class="btn-text">24 hr</span>
+  <span class="btn-text">12-Hour Format</span>
   <button class="toggle-btn" on:click={() => toggleFormat()}>
     <input
       type="checkbox"
       class="checkbox"
-      bind:checked={$format12HrStore}
-      value={$format12HrStore}
+      bind:checked={$formatBoolStore}
+      value={$formatBoolStore}
       name="toggle" />
     <span class="slider"></span>
   </button>
-  <span class="btn-text">12 hr</span>
 </div>
 
 <style>
   .toggle-wrap {
     display: flex;
     justify-content: flex-end;
-    padding-inline: var(--gap-md);
     margin-block-start: var(--gap-sm);
   }
 
   .btn-text {
-    font-size: var(--location-font);
-    font-weight: bold;
-    color: white;
+    font-size: 1rem;
     line-height: 40px;
     margin-inline: 10px;
+    font-weight: normal;
   }
 
   .toggle-btn {
@@ -51,6 +46,7 @@
     padding: 0 10px;
     overflow: hidden;
     cursor: pointer;
+    transform: scale(0.8);
   }
 
   .checkbox {

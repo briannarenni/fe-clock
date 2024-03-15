@@ -3,11 +3,11 @@
   import { fetchGeo, fetchTime } from '@scripts/apiServices.js';
   import { size, geoApiStore, worldApiStore, timeOfDayStore } from '@scripts/stores.js';
   import { bkgImgs } from '@scripts/dayNightAssets.js';
-  import ToggleBtn from '@components/ToggleBtn.svelte';
 
   import Quote from '@containers/Quote.svelte';
   import Clock from '@containers/Clock.svelte';
-  import Drawer from '@containers/Drawer.svelte';
+  import Expand from '@containers/Expand.svelte';
+  import Settings from '@containers/Settings.svelte';
 
   const getScreenType = (value) => {
     if (value <= 380) {
@@ -38,8 +38,11 @@
     });
   };
 
-  let isDrawerOpen = false;
-  const toggleDrawer = () => (isDrawerOpen = !isDrawerOpen);
+  let isExpandOpen = false;
+  const toggleExpand = () => (isExpandOpen = !isExpandOpen);
+
+  let isSettingsOpen = false;
+  const toggleSettings = () => (isSettingsOpen = !isSettingsOpen);
 
   $: screenType = getScreenType($size.width);
   $: bkgImgUrl = bkgImgs[screenType][$timeOfDayStore];
@@ -52,19 +55,21 @@
 </script>
 
 <div class="container" style={bkgStyle}>
-  <ToggleBtn />
-  <Quote {isDrawerOpen} />
+  <Settings {isSettingsOpen} {toggleSettings} />
+
+  <Quote {isExpandOpen} />
 
   <Clock />
 
-  <Drawer {isDrawerOpen} {toggleDrawer} />
+  <Expand {isExpandOpen} {toggleExpand} />
 </div>
 
 <style>
   .container {
+    height: 100vh;
     display: grid;
     grid-template-rows: auto 1fr 1fr auto;
     color: var(--white);
-    height: 100vh;
+    position: relative;
   }
 </style>

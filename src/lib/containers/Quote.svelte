@@ -2,8 +2,8 @@
   import { onMount } from 'svelte';
   import { slide } from 'svelte/transition';
   import { SkeletonBlock, SkeletonText } from 'skeleton-elements/svelte';
-  import { quoteApiStore } from '@scripts/stores.js';
-  import { fetchQuote } from '@scripts/apiServices.js';
+  import { quoteApiStore } from '@js/data-stores.js';
+  import { fetchQuote } from '@js/api-services.js';
 
   export let isExpandOpen;
 

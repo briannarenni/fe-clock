@@ -1,6 +1,6 @@
 <script>
   import { SkeletonText } from 'skeleton-elements/svelte';
-  import { clockStore, geoApiStore } from '@scripts/stores.js';
+  import { clockStore, geoApiStore } from '@js/data-stores.js';
   import Greeting from '@components/Greeting.svelte';
 
   $: time = $clockStore.currentTime;

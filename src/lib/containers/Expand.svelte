@@ -1,9 +1,11 @@
 <script>
   import { slide } from 'svelte/transition';
-  import { size, worldApiStore } from '@scripts/stores.js';
+  import { windowSizeStore } from 'svelte-legos';
+  import { worldApiStore } from '@js/data-stores.js';
 
   export let isExpandOpen;
   export let toggleExpand;
+  const size = windowSizeStore();
 
   const formatTimezone = (str) => str.replace(/_/g, ' ');
 

@@ -1,8 +1,11 @@
 <script>
   import { onMount } from 'svelte';
-  import { fetchGeo, fetchTime } from '@scripts/apiServices.js';
-  import { size, geoApiStore, worldApiStore, timeOfDayStore } from '@scripts/stores.js';
-  import { bkgImgs } from '@scripts/dayNightAssets.js';
+  import { windowSizeStore } from 'svelte-legos';
+  import { fetchGeo, fetchTime } from '@js/api-services.js';
+  import { geoApiStore, worldApiStore } from '@js/data-stores.js';
+  import { timeOfDayStore } from '@js/app-theme.js';
+  // ? move to app-theme.js?
+  import { bkgImgs } from '@js/time-assets.js';
 
   import Quote from '@containers/Quote.svelte';
   import Clock from '@containers/Clock.svelte';
@@ -44,6 +47,7 @@
   let isSettingsOpen = false;
   const toggleSettings = () => (isSettingsOpen = !isSettingsOpen);
 
+  const size = windowSizeStore();
   $: screenType = getScreenType($size.width);
   $: bkgImgUrl = bkgImgs[screenType][$timeOfDayStore];
   $: bkgStyle = `background-image: url(${bkgImgUrl}); background-size: cover; background-repeat: no-repeat; background-color: var(--black);`;

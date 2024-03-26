@@ -1,6 +1,6 @@
-@import '@styles/reset.css';
-@import '@styles/font-scale.css';
-@import '@styles/gap-scale.css';
+@import '@css/reset.css';
+@import '@css/font-scale.css';
+@import '@css/gap-scale.css';
 
 :root {
   --black: #000000;

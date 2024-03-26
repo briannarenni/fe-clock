@@ -1,6 +1,6 @@
 <script>
   import { fade } from 'svelte/transition';
-  import { formatBoolStore, getUserTime, clockStore } from '@scripts/stores.js';
+  import { formatBoolStore, getUserTime, clockStore } from '@js/data-stores.js';
 
   const toggleFormat = () => {
     formatBoolStore.update((value) => !value);

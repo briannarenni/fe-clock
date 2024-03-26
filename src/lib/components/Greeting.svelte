@@ -1,9 +1,12 @@
 <script>
-  import { icons, greetings } from '@scripts/dayNightAssets.js';
-  import { size, timeOfDayStore } from '@scripts/stores.js';
+  import { windowSizeStore } from 'svelte-legos';
+  import { icons, greetings } from '@js/time-assets.js';
+  import { timeOfDayStore } from '@js/app-theme.js';
 
   let iconSrc;
   let greeting;
+
+  const size = windowSizeStore();
 
   if ($timeOfDayStore === 'morning') {
     iconSrc = icons.morning;

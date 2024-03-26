@@ -1,6 +1,7 @@
 <script>
   import { slide, fade } from 'svelte/transition';
-  import ToggleBtn from '@components/ToggleBtn.svelte';
+  import ToggleFormatBtn from '@components/ToggleFormatBtn.svelte';
+  import BkgSelect from '@components/BkgSelect.svelte';
 
   export let isSettingsOpen;
   export let toggleSettings;
@@ -10,18 +11,17 @@
   <img class="btn-icon" src="assets/icons/settings.svg" alt="Settings Menu" />
 </button>
 
-<!-- TODO: Add drawer from right -->
 {#if isSettingsOpen}
   <section class="settings" transition:slide={{ duration: 375, delay: 0, axis: 'x' }}>
     <div class="flex" transition:fade={{ delay: 325, duration: 100 }}>
       <h2 class="menu-title">Settings</h2>
-      <ToggleBtn />
+      <ToggleFormatBtn />
+      <BkgSelect />
     </div>
   </section>
 {/if}
 
 <style>
-  /* ? Make larger on desktop?*/
   .btn-icon {
     max-height: 25px;
   }

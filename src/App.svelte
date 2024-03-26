@@ -1,26 +1,14 @@
 <script>
   import { onMount } from 'svelte';
   import { windowSizeStore } from 'svelte-legos';
+  import { bkgImgs, getScreenType } from '@js/app-theme.js';
   import { fetchGeo, fetchTime } from '@js/api-services.js';
-  import { geoApiStore, worldApiStore } from '@js/data-stores.js';
-  import { timeOfDayStore } from '@js/app-theme.js';
-  // ? move to app-theme.js?
-  import { bkgImgs } from '@js/time-assets.js';
+  import { geoApiStore, worldApiStore, timeOfDayStore } from '@js/data-stores.js';
 
   import Quote from '@containers/Quote.svelte';
   import Clock from '@containers/Clock.svelte';
   import Expand from '@containers/Expand.svelte';
   import Settings from '@containers/Settings.svelte';
-
-  const getScreenType = (value) => {
-    if (value <= 380) {
-      return 'mobile';
-    } else if (value >= 380 && value <= 520) {
-      return 'tablet';
-    } else if (value >= 520) {
-      return 'desktop';
-    }
-  };
 
   const setTime = async () => {
     const response = await fetchTime();
@@ -58,6 +46,7 @@
   });
 </script>
 
+<!-- ? then import bkgStyle to use here -->
 <div class="container" style={bkgStyle}>
   <Settings {isSettingsOpen} {toggleSettings} />
 

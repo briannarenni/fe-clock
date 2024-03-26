@@ -1,12 +1,22 @@
 <script>
   import { windowSizeStore } from 'svelte-legos';
-  import { icons, greetings } from '@js/time-assets.js';
-  import { timeOfDayStore } from '@js/app-theme.js';
+  import { timeOfDayStore } from '@js/data-stores.js';
 
   let iconSrc;
   let greeting;
 
   const size = windowSizeStore();
+
+  const icons = {
+    morning: 'assets/icons/sun-icon.svg',
+    night: 'assets/icons/moon-icon.svg'
+  };
+
+  const greetings = {
+    morning: 'Good morning',
+    afternoon: 'Good afternoon',
+    night: 'Good evening'
+  };
 
   if ($timeOfDayStore === 'morning') {
     iconSrc = icons.morning;

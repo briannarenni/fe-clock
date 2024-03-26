@@ -1,19 +1,31 @@
-import { writable } from 'svelte/store';
-
-const now = new Date();
-export const getTimeOfDay = () => {
-  const hours = now.getHours();
-
-  if (hours >= 5 && hours < 12) {
-    return 'morning';
-  } else if (hours >= 12 && hours < 18) {
-    return 'afternoon';
-  } else {
-    return 'night';
+export const bkgImgs = {
+  mobile: {
+    morning: 'assets/bkg-imgs/mobile-day.jpg',
+    afternoon: 'assets/bkg-imgs/mobile-day.jpg',
+    night: 'assets/bkg-imgs/mobile-night.jpg'
+  },
+  tablet: {
+    morning: 'assets/bkg-imgs/tablet-day.jpg',
+    afternoon: 'assets/bkg-imgs/tablet-day.jpg',
+    night: 'assets/bkg-imgs/tablet-night.jpg'
+  },
+  desktop: {
+    morning: 'assets/bkg-imgs/desktop-day.jpg',
+    afternoon: 'assets/bkg-imgs/desktop-day.jpg',
+    night: 'assets/bkg-imgs/desktop-night.jpg'
   }
-}
+};
 
-export const timeOfDayStore = writable(getTimeOfDay());
-setInterval(() => {
-  timeOfDayStore.set(getTimeOfDay());
-}, 60000);
+export const getScreenType = (value) => {
+  if (value <= 380) {
+    return 'mobile';
+  } else if (value >= 380 && value <= 520) {
+    return 'tablet';
+  } else if (value >= 520) {
+    return 'desktop';
+  }
+};
+
+// TODO: light/dark
+// ? dark: #111111?
+// ? light: #e5e5e5

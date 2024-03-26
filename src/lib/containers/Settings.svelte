@@ -1,21 +1,40 @@
 <script>
+  import { tweened } from 'svelte/motion';
+  import { cubicInOut } from 'svelte/easing';
   import { slide, fade } from 'svelte/transition';
-  import ToggleFormatBtn from '@components/ToggleFormatBtn.svelte';
+  import FormatToggle from '@components/FormatToggle.svelte';
   import BkgSelect from '@components/BkgSelect.svelte';
 
   export let isSettingsOpen;
   export let toggleSettings;
+
+  const rotation = tweened(0, {
+    duration: 400,
+    easing: cubicInOut
+  });
+
+  $: if (isSettingsOpen) {
+    rotation.set(0);
+  } else {
+    rotation.set(150);
+  }
+
+  $: rotationStyle = `transform: rotate(${$rotation}deg);`;
+
+  $: if ($rotation >= 360) {
+    rotation.set(0, { duration: 0 });
+  }
 </script>
 
 <button class="settings-btn" on:click={toggleSettings}>
-  <img class="btn-icon" src="assets/icons/settings.svg" alt="Settings Menu" />
+  <img class="btn-icon" src="assets/icons/settings.svg" alt="Settings Menu" style={rotationStyle} />
 </button>
 
 {#if isSettingsOpen}
-  <section class="settings" transition:slide={{ duration: 375, delay: 0, axis: 'x' }}>
-    <div class="flex" transition:fade={{ delay: 325, duration: 100 }}>
+  <section class="settings" transition:slide={{ duration: 300, delay: 0, axis: 'x' }}>
+    <div class="flex" transition:fade={{ delay: 350, duration: 200 }}>
       <h2 class="menu-title">Settings</h2>
-      <ToggleFormatBtn />
+      <FormatToggle />
       <BkgSelect />
     </div>
   </section>
@@ -26,8 +45,15 @@
     max-height: 25px;
   }
 
-  .settings-btn,
-  .settings {
+  .menu-title {
+    font-size: 1.8rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.2);
+  }
+
+  .settings,
+  .settings-btn {
     justify-self: end;
   }
 
@@ -42,20 +68,22 @@
 
   .settings-btn:hover {
     cursor: pointer;
+    filter: invert(0.1);
   }
 
   .settings {
     position: fixed;
-    max-width: fit-content;
     height: 100vh;
     color: var(--stone);
-    padding-block-start: var(--gap-xxl);
+    padding-block-start: calc(var(--gap-xl) + 0.75rem);
     padding-inline: var(--gap-md);
     background: #ffffff;
     background: radial-gradient(at center, #fffffd, #ababab);
   }
 
-  .menu-title {
-    font-size: 1.5rem;
+  @media screen and (min-width: 1200px) {
+    .btn-icon {
+      max-height: 30px;
+    }
   }
 </style>

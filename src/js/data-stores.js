@@ -1,6 +1,16 @@
 import { writable } from 'svelte/store';
 
+export const quoteApiStore = writable({ quote: '', author: '' });
+export const geoApiStore = writable({ city: '', area: '', zoneCode: '' });
+export const worldApiStore = writable({ timezone: '', dayOfWeek: 0, dayOfYear: 0, weekNumber: 0 });
+
 const now = new Date();
+
+const initLocale = new Intl.DateTimeFormat([], {
+  hour: '2-digit',
+  minute: '2-digit',
+  hour12: undefined,
+}).resolvedOptions().hourCycle.startsWith('h23') ? false : true;
 
 export const getTimeOfDay = () => {
   const hours = now.getHours();
@@ -13,11 +23,6 @@ export const getTimeOfDay = () => {
     return 'night';
   }
 }
-
-export const timeOfDayStore = writable(getTimeOfDay());
-setInterval(() => {
-  timeOfDayStore.set(getTimeOfDay());
-}, 60000);
 
 export const getUserTime = (bool) => {
   let timeString = now.toLocaleTimeString([],
@@ -33,11 +38,10 @@ export const getUserTime = (bool) => {
   return { currentTime, currentPeriod };
 }
 
-const initLocale = new Intl.DateTimeFormat([], {
-  hour: '2-digit',
-  minute: '2-digit',
-  hour12: undefined,
-}).resolvedOptions().hourCycle.startsWith('h23') ? false : true;
+export const timeOfDayStore = writable(getTimeOfDay());
+setInterval(() => {
+  timeOfDayStore.set(getTimeOfDay());
+}, 60000);
 
 export const formatBoolStore = writable(initLocale);
 
@@ -45,7 +49,3 @@ export const clockStore = writable(getUserTime(formatBoolStore));
 setInterval(() => {
   clockStore.set(getUserTime(formatBoolStore));
 }, 60000);
-
-export const quoteApiStore = writable({ quote: '', author: '' });
-export const geoApiStore = writable({ city: '', area: '', zoneCode: '' });
-export const worldApiStore = writable({ timezone: '', dayOfWeek: 0, dayOfYear: 0, weekNumber: 0 });

@@ -1,3 +1,7 @@
+import { writable } from 'svelte/store';
+
+export const bkgThemePrefStore = writable('scenic');
+
 export const bkgImgs = {
   mobile: {
     morning: 'assets/bkg-imgs/mobile-day.jpg',
@@ -26,6 +30,3 @@ export const getScreenType = (value) => {
   }
 };
 
-// TODO: light/dark
-// ? dark: #111111?
-// ? light: #e5e5e5

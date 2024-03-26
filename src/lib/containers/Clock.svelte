@@ -8,6 +8,9 @@
   $: zoneCode = $geoApiStore.zoneCode;
   $: city = $geoApiStore.city;
   $: area = $geoApiStore.area;
+
+  // ! Time not updating?
+  $: console.log($clockStore.currentTime, time);
 </script>
 
 <main>
@@ -87,6 +90,12 @@
   .location,
   .zonecode {
     line-height: 28px;
+  }
+
+  @media screen and (min-width: 750px) {
+    main {
+      padding-block-start: 0;
+    }
   }
 
   @media screen and (min-width: 1024px) {

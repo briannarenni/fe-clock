@@ -60,7 +60,6 @@
     align-items: center;
     border-radius: 25px;
     margin: var(--gap-lg);
-    margin-block-end: var(--gap-xxl);
     padding: 5px;
     letter-spacing: 3.75px;
   }

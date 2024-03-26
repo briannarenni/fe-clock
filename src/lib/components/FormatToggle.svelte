@@ -10,31 +10,46 @@
   };
 </script>
 
-<div class="toggle-wrap">
-  <span class="btn-text">12-Hour Format</span>
-  <button class="toggle-btn" on:click={() => toggleFormat()}>
-    <input
-      type="checkbox"
-      class="checkbox"
-      bind:checked={$formatBoolStore}
-      value={$formatBoolStore}
-      name="toggle" />
-    <span class="slider"></span>
-  </button>
+<div class="format-setting">
+  <p class="menu-label">12-Hour Format</p>
+  <div class="toggle-wrap">
+    <span class="btn-text">Off</span>
+    <button class="toggle-btn" on:click={() => toggleFormat()}>
+      <input
+        type="checkbox"
+        class="checkbox"
+        bind:checked={$formatBoolStore}
+        value={$formatBoolStore}
+        name="toggle" />
+      <span class="slider"></span>
+    </button>
+    <span class="btn-text">On</span>
+  </div>
 </div>
 
 <style>
+  .format-setting {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    margin-block-start: 1rem;
+  }
+
+  .menu-label {
+    font-size: 1.2rem;
+    line-height: 40px;
+  }
+
   .toggle-wrap {
     display: flex;
-    justify-content: flex-end;
-    margin-block-start: var(--gap-sm);
+    justify-content: space-between;
+    max-width: 60%;
   }
 
   .btn-text {
-    font-size: 1rem;
+    font-size: 1.1rem;
     line-height: 40px;
-    margin-inline: 10px;
-    font-weight: normal;
+    font-weight: 300;
   }
 
   .toggle-btn {

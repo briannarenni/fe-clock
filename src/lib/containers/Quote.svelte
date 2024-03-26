@@ -78,7 +78,6 @@
     max-height: 10px;
   }
 
-  /* Todo: Container? */
   @media (min-width: 600px) {
     .quote-wrap {
       max-width: 95%;

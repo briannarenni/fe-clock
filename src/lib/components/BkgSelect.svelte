@@ -1,28 +1,39 @@
-<script></script>
+<script>
+  import { bkgThemePrefStore } from '@js/bkg-themes.js';
+</script>
 
-<div class="bkg-select">
-  <p class="title-text">Change Background</p>
-  <select name="bkg-menu" class="bkg-options" id="bkg-options">
-    <option value="1">Scenic (Default)</option>
-    <option value="2">Dark</option>
-    <option value="3">Light</option>
+<div class="bkg-setting">
+  <p class="menu-label">Change Background</p>
+  <select bind:value={$bkgThemePrefStore} name="bkg-menu" class="bkg-options" id="bkg-settingor">
+    <option value="scenic">Scenic (Default)</option>
+    <option value="dark">Dark</option>
+    <option value="light">Light</option>
   </select>
 </div>
 
 <style>
-  .bkg-select {
-    margin-block-start: var(--gap-sm);
+  .bkg-setting {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    margin-block-start: 1rem;
   }
 
-  .title-text {
-    font-size: 1rem;
+  .menu-label {
+    font-size: 1.2rem;
     line-height: 40px;
-    margin-inline: 10px;
-    font-weight: normal;
   }
 
   .bkg-options {
-    margin-inline: 10px;
-    width: 100%;
+    min-width: 100%;
+    min-height: 2rem;
+    background-color: var(--white);
+    color: var(--black);
+    font-weight: 300;
+    font-size: 1rem;
+    border: 1.5px solid var(--stone);
+    border-radius: 20px;
+    padding-block: 3px;
+    padding-inline: 10px;
   }
 </style>

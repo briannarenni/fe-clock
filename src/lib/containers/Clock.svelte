@@ -8,12 +8,9 @@
   $: zoneCode = $geoApiStore.zoneCode;
   $: city = $geoApiStore.city;
   $: area = $geoApiStore.area;
-
-  // ! Time not updating?
-  $: console.log($clockStore.currentTime, time);
 </script>
 
-<main>
+<main class="clock-container">
   <Greeting />
 
   <div class="clock">
@@ -45,9 +42,9 @@
 </main>
 
 <style>
-  main {
-    padding-block-start: var(--gap-lg);
-    padding-inline: var(--gap-lg);
+  .clock-container {
+    padding: var(--gap-lg);
+    padding-block-end: 0;
   }
 
   .clock {
@@ -92,14 +89,8 @@
     line-height: 28px;
   }
 
-  @media screen and (min-width: 750px) {
-    main {
-      padding-block-start: 0;
-    }
-  }
-
   @media screen and (min-width: 1024px) {
-    main {
+    .clock-container {
       padding-block-start: var(--gap-sm);
       padding-inline: var(--gap-lg);
     }

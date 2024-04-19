@@ -1,11 +1,13 @@
 <script>
+  import { get } from 'svelte/store';
   import { fade } from 'svelte/transition';
-  import { formatBoolStore, getUserTime, clockStore } from '@js/data-stores.js';
+  import { use12HrFormatStore, getUserTime, clockStore } from '@js/data-stores.js';
 
   const toggleFormat = () => {
-    formatBoolStore.update((value) => !value);
-    formatBoolStore.subscribe((value) => {
-      clockStore.set(getUserTime(value));
+    use12HrFormatStore.update((value) => {
+      const flippedBool = !value;
+      clockStore.set(getUserTime(flippedBool));
+      return flippedBool;
     });
   };
 </script>
@@ -18,8 +20,8 @@
       <input
         type="checkbox"
         class="checkbox"
-        bind:checked={$formatBoolStore}
-        value={$formatBoolStore}
+        bind:checked={$use12HrFormatStore}
+        value={$use12HrFormatStore}
         name="toggle" />
       <span class="slider"></span>
     </button>

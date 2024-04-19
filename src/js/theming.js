@@ -32,17 +32,6 @@ export const getScreenType = (value) => {
   }
 };
 
-export const icons = {
-  morning: 'assets/icons/sun-icon.svg',
-  night: 'assets/icons/moon-icon.svg'
-};
-
-export const greetings = {
-  morning: 'Good morning',
-  afternoon: 'Good afternoon',
-  night: 'Good evening'
-};
-
 export const bkgImgs = {
   mobile: {
     morning: 'assets/bkg-imgs/mobile-day.jpg',
@@ -60,6 +49,7 @@ export const bkgImgs = {
     night: 'assets/bkg-imgs/desktop-night.jpg'
   }
 };
+
 
 
 

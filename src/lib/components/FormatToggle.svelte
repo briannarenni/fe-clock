@@ -1,7 +1,7 @@
 <script>
   import { get } from 'svelte/store';
   import { fade } from 'svelte/transition';
-  import { use12HrFormatStore, getUserTime, clockStore } from '@js/data-stores.js';
+  import { use12HrFormatStore, getUserTime, clockStore } from '@js/stores.js';
 
   const toggleFormat = () => {
     use12HrFormatStore.update((value) => {
@@ -45,7 +45,7 @@
   .toggle-wrap {
     display: flex;
     justify-content: space-between;
-    max-width: 60%;
+    max-width: 75%;
   }
 
   .btn-text {

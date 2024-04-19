@@ -1,7 +1,6 @@
 import ky from 'ky';
 
-// Quote API Call
-export const fetchQuote = async () => {
+export const fetchQuoteData = async () => {
   const url = 'https://famous-quotes4.p.rapidapi.com/random?category=computers';
   try {
     const response = await ky.get(url, {
@@ -21,8 +20,7 @@ export const fetchQuote = async () => {
   }
 }
 
-// Geo API Call
-export const fetchGeo = async () => {
+export const fetchGeoData = async () => {
   const url = 'https://ip-geo-location.p.rapidapi.com/ip/check';
   try {
     const response = await ky.get(url, {
@@ -43,8 +41,7 @@ export const fetchGeo = async () => {
   }
 }
 
-// World API Call
-export const fetchTime = async () => {
+export const fetchTimeData = async () => {
   const url = `http://worldtimeapi.org/api/ip/`;
   try {
     const response = await ky.get(url).json();
@@ -58,4 +55,3 @@ export const fetchTime = async () => {
     }
   }
 }
-

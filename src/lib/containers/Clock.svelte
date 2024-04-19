@@ -1,13 +1,15 @@
 <script>
   import { SkeletonText } from 'skeleton-elements/svelte';
-  import { clockStore, geoApiStore } from '@js/data-stores.js';
+  import { clockStore, geoDataStore } from '@js/stores.js';
   import Greeting from '@components/Greeting.svelte';
+
+  // export let isExpandOpen;
 
   $: time = $clockStore.currentTime;
   $: period = $clockStore.currentPeriod;
-  $: zoneCode = $geoApiStore.zoneCode;
-  $: city = $geoApiStore.city;
-  $: area = $geoApiStore.area;
+  $: zoneCode = $geoDataStore.zoneCode;
+  $: city = $geoDataStore.city;
+  $: area = $geoDataStore.area;
 </script>
 
 <main class="clock-container">
@@ -39,6 +41,13 @@
   {:else}
     <h4 class="location">in {city}, {area}</h4>
   {/if}
+
+  <!-- ! Fix Expand overflow -->
+  <!-- {#if !city || !area}
+    <SkeletonText effect="wave">Lorem, ipsum dolor</SkeletonText>
+  {:else}
+    <h4 class="location" style="margin-block-end: {isExpandOpen ? '0' : ''};">in {city}, {area}</h4>
+  {/if} -->
 </main>
 
 <style>

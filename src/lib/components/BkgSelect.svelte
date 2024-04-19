@@ -1,10 +1,10 @@
 <script>
-  import { bkgThemePrefStore } from '@js/bkg-themes.js';
+  import { bkgPrefStore } from '@js/theming.js';
 </script>
 
 <div class="bkg-setting">
   <p class="menu-label">Change Background</p>
-  <select bind:value={$bkgThemePrefStore} name="bkg-menu" class="bkg-options" id="bkg-settingor">
+  <select bind:value={$bkgPrefStore} name="bkg-menu" class="bkg-options" id="bkg-settingor">
     <option value="scenic">Scenic (Default)</option>
     <option value="dark">Dark</option>
     <option value="light">Light</option>

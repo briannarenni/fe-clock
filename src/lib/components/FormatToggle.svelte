@@ -45,7 +45,7 @@
   .toggle-wrap {
     display: flex;
     justify-content: space-between;
-    max-width: 60%;
+    max-width: 75%;
   }
 
   .btn-text {

@@ -1,5 +1,5 @@
 <script>
-  import { bkgThemePrefStore } from '@js/bkg-themes.js';
+  import { bkgThemePrefStore } from '@js/app-theming.js';
 </script>
 
 <div class="bkg-setting">

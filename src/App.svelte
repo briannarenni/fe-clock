@@ -1,7 +1,7 @@
 <script>
   import { onMount } from 'svelte';
   import { windowSizeStore } from 'svelte-legos';
-  import { bkgThemePrefStore, bkgImgs, getScreenType } from '@js/bkg-themes.js';
+  import { bkgThemePrefStore, bkgImgs, getScreenType } from '@js/app-theming.js';
   import { fetchGeo, fetchTime } from '@js/api-services.js';
   import { geoApiStore, worldApiStore, timeOfDayStore } from '@js/data-stores.js';
 
@@ -10,7 +10,7 @@
   import Expand from '@containers/Expand.svelte';
   import Settings from '@containers/Settings.svelte';
 
-  // Sets timezone info
+  // Assigns timezone info to store
   const setTime = async () => {
     const response = await fetchTime();
     worldApiStore.set({
@@ -21,7 +21,7 @@
     });
   };
 
-  // Sets geolocation info
+  // Assigns geolocation info to store
   const setGeo = async () => {
     const response = await fetchGeo();
     geoApiStore.set({
@@ -37,7 +37,7 @@
   let isSettingsOpen = false;
   const toggleSettings = () => (isSettingsOpen = !isSettingsOpen);
 
-  // Sets app background image
+  // Sets app background image dynamically
   const size = windowSizeStore();
   $: screenType = getScreenType($size.width);
   $: appBkgImg = bkgImgs[screenType][$timeOfDayStore];

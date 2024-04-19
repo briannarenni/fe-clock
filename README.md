@@ -2,29 +2,30 @@
 
 **[Live Site](https://fe-clock.netlify.app/)**
 
-A fully responsive app built with Svelte (Vite) and deployed with Netlify.
+A fully responsive app built with SvelteJS and Vite, and deployed with Netlify.
 
-<sub>(Based on the new challenge from [Frontend Mentor Pro](https://www.frontendmentor.io)!) </sub>
+<sub>_Comments have been added throughout the codebase for anyone coming from [Frontend Mentor Pro](https://www.frontendmentor.io) looking for help as well._</sub>
 
 ## App Features
 
-- (NEW) ⭐️ Time display can be toggled between 12 and 24 hour format!
+- (NEW) ⭐️ Time can be toggled between 12 and 24 hour format
+- (NEW) ⭐️ Background theme selection menu
 - Fully responsive app layout
-- Greeting and background image based on the current time of day of the user
-- A random (and refreshable) computer-based quote is shown
-- Time & geo information is based on the user's IP address and extra info is available in an extendable drawer
+- Dynamic theming based on the user's current time of day
+- A random and refreshable computer-based quote is shown on every load
+- Extensive time & geo-location information shown based on the user's IP address
 
 ## APIs Used 📈
 
 - [Famous Quotes API](https://rapidapi.com/saicoder/api/famous-quotes4)
-- [World Time API](http://worldtimeapi.org/)
 - [IP Geo Location API](https://rapidapi.com/natkapral/api/ip-geo-location)
+- [World Time API](http://worldtimeapi.org/)
 
-## Tool Shoutouts 💜
+## Shoutouts 💜
 
 Grateful as always to these ever-useful libraries:
 
+- [RapidAPI](https://rapidapi.com)
 - [Ky](https://github.com/sindresorhus/ky)
-- [Svelte Legos](https://sveltelegos.com/) (that handy-dandy window size store)
-- RapidAPI (see above)
-- [Icons8](https://icons8.com/icon/65324/clock) (the clock favicon 😏)
+- [Svelte Legos](https://github.com/ankurrsinghal/svelte-legos)
+- [Icons8](https://icons8.com/icon/65324/clock)

@@ -2,7 +2,7 @@
   import { onMount } from 'svelte';
   import { windowSizeStore } from 'svelte-legos';
   import { setGeoInfo, setTimeInfo } from '@js/stores.js';
-  import { bkgPrefStore, timeOfDayStore, bkgImgs, getScreenType } from '@js/theming.js';
+  import { resolveBkgStyle, bkgPrefStore, timeOfDayStore, bkgImgs, getScreenType } from '@js/theming.js';
   import { Quote, Clock, Expand, Settings } from '@containers';
 
   let isSettingsOpen = false;
@@ -10,18 +10,16 @@
   const toggleSettings = () => (isSettingsOpen = !isSettingsOpen);
   const toggleExpand = () => (isExpandOpen = !isExpandOpen);
 
-  // Sets app background image dynamically
+  // Sets app bkg image dynamically
   const size = windowSizeStore();
   $: screenType = getScreenType($size.width);
-  $: appBkgImg = bkgImgs[screenType][$timeOfDayStore];
+  $: timeOfDay = $timeOfDayStore;
+  $: bkgPref = $bkgPrefStore;
 
-  // TODO: Refactor and clean up for scaling
-  $: bkgTheme =
-    $bkgPrefStore === 'scenic'
-      ? `background-image: url(${bkgImgs[screenType][$timeOfDayStore]}); background-size: cover; background-repeat: no-repeat; background-color: var(--black);`
-      : $bkgPrefStore === 'dark'
-        ? 'background: var(--dark-bkg);'
-        : 'background: var(--light-bkg);';
+
+  $: bkgTheme = resolveBkgStyle(screenType, timeOfDay, bkgPref);
+
+
 
   onMount(async () => {
     setGeoInfo();

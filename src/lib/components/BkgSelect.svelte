@@ -4,7 +4,7 @@
 
 <div class="bkg-setting">
   <p class="menu-label">Change Background</p>
-  <select bind:value={$bkgPrefStore} name="bkg-menu" class="bkg-options" id="bkg-settingor">
+  <select bind:value={$bkgPrefStore} name="bkg-menu" class="bkg-options">
     <option value="scenic">Scenic (Default)</option>
     <option value="dark">Dark</option>
     <option value="light">Light</option>

@@ -15,7 +15,6 @@ export const getTimeOfDay = () => {
   }
 }
 
-// Refreshes time of day every minute
 export const timeOfDayStore = writable(getTimeOfDay());
 setInterval(() => {
   timeOfDayStore.set(getTimeOfDay());
@@ -50,6 +49,19 @@ export const bkgImgs = {
   }
 };
 
+// Sets selected app background
+export const resolveBkgStyle = (screenType, timeOfDay, bkgPref) => {
+  // Sets app bkg image dynamically
+  const bkgImgUrl = bkgImgs[screenType][timeOfDay];
 
-
-
+  switch (bkgPref) {
+    case 'scenic':
+      return `background-image: url(${bkgImgUrl}); background-size: cover; background-repeat: no-repeat; background-color: var(--dark-bkg)`;
+    case 'dark':
+      return 'background: var(--dark-bkg);';
+    case 'light':
+      return 'background: var(--light-bkg);';
+    default:
+      return `background-image: url(${bkgImgUrl}); background-size: cover; background-repeat: no-repeat; background-color: var(--black);`;
+  }
+}

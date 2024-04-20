@@ -47,9 +47,10 @@
 
   .menu-title {
     font-size: 1.8rem;
-    font-weight: 500;
+    font-family: 'Lato', sans-serif;
+    font-weight: 700;
     text-transform: uppercase;
-    text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.2);
+    letter-spacing: 1.2px;
   }
 
   .settings,
@@ -78,7 +79,7 @@
     padding-block-start: calc(var(--gap-xl) + 0.75rem);
     padding-inline: var(--gap-md);
     background: #ffffff;
-    background: radial-gradient(at center, #fffffd, #ababab);
+    background: linear-gradient(180deg, #e1e0e0 0%, #cdcccc 50%, #999696 100%);
   }
 
   @media screen and (min-width: 1200px) {

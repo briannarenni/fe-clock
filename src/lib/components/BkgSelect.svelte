@@ -6,8 +6,14 @@
   <p class="menu-label">Change Background</p>
   <select bind:value={$bkgPrefStore} name="bkg-menu" class="bkg-options">
     <option value="scenic">Scenic (Default)</option>
-    <option value="dark">Dark</option>
-    <option value="light">Light</option>
+    <option value="glacier">Glacier</option>
+    <option value="meadow">Meadow</option>
+    <option value="grape">Grape Jelly</option>
+    <option value="bubblegum">Bubblegum</option>
+    <option value="tropical">Tropical</option>
+    <option value="lilac">Lilac Field</option>
+    <option value="gunmetal">Gunmetal (Light)</option>
+    <option value="midnight">Midnight (Dark)</option>
   </select>
 </div>
 

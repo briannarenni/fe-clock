@@ -1,0 +1,14 @@
+:root {
+  --black: #000000;
+  --white: #FFFFFF;
+  --stone: #303030;
+  --gray: #787777;
+  --glacier-bkg: linear-gradient(180deg, #9fdfe7 0%, #96bcfa 50%, #27496d 100%);
+  --meadow-bkg: linear-gradient(180deg, #adf0b0 0%, #5fa25a 50%, #1a472a 100%);
+  --grape-bkg: linear-gradient(180deg, #e2b0ff 0%, #9f44d3 50%, #5f0a87 100%);
+  --bubblegum-bkg: linear-gradient(180deg, #ff9cee 0%, #f572ac 50%, #c6426e 100%);
+  --tropical-bkg: linear-gradient(180deg, #fcc67b 0%, #f89915 50%, #d93921 100%);
+  --lilac-bkg: linear-gradient(180deg, #cea1f3 0%, #9272c2 50%, #5a499b 100%);
+  --gunmetal-bkg: linear-gradient(180deg, #b9b8b8 0%, #817f7f 50%, #616060 100%);
+  --midnight-bkg: linear-gradient(180deg, #090909 0%, #393838 50%, #292929 100%);
+}

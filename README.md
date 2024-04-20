@@ -8,8 +8,9 @@ A fully responsive app built with SvelteJS and Vite, and deployed with Netlify.
 
 ## App Features
 
-- (NEW) ⭐️ Time can be toggled between 12 and 24 hour format
-- (NEW) ⭐️ Background theme selection menu
+- (NEW) ⭐️ Settings Menu!
+    - Background selection menu
+    - Time format can be toggled between 12 and 24 hour format
 - Fully responsive app layout
 - Dynamic theming based on the user's current time of day
 - A random and refreshable computer-based quote is shown on every load

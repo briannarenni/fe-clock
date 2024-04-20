@@ -7,15 +7,26 @@ const initTimeFormat = new Intl.DateTimeFormat([], {
   hour12: undefined,
 }).resolvedOptions().hourCycle.startsWith('h23') ? false : true;
 
-// Allows user to choose time format pref
-export const use12HrFormatStore = writable(initTimeFormat);
+// Check local storage for time format preference
+const checkStoredFormat = () => {
+  let formatPref = localStorage.getItem('formatPref');
+  if (formatPref === null) {
+    localStorage.setItem('formatPref', initTimeFormat);
+    return initTimeFormat;
+  }
+  return formatPref === 'true' ? true : false;
+}
 
-// Gets and formats user's current time based on pref
+// Stores user-chosen format pref/updates local storage
+export const use12HrFormatStore = writable(checkStoredFormat());
+use12HrFormatStore.subscribe((value) => localStorage.setItem('formatPref', value));
+
+// Gets and formats current time based on pref
 export const getUserTime = (use12Format) => {
+  const clock = { currentTime: '', currentPeriod: '' };
+
   let timeString = new Date().toLocaleTimeString([],
     { hour: '2-digit', minute: '2-digit', hour12: use12Format });
-
-  const clock = { currentTime: '', currentPeriod: '' };
 
   if (use12Format) {
     clock.currentTime = timeString.slice(0, -3);

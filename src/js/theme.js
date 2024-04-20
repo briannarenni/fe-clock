@@ -1,5 +1,19 @@
 import { writable } from 'svelte/store';
 
+// Check local storage for background theme preference
+const checkBkgPref = () => {
+  let bkgPref = localStorage.getItem('bkgPref');
+  if (bkgPref === null) {
+    localStorage.setItem('bkgPref', 'scenic');
+    return 'scenic';
+  }
+  return bkgPref;
+}
+
+// Stores selected background theme/updates local storage
+export const bkgPrefStore = writable(checkBkgPref());
+bkgPrefStore.subscribe((value) => localStorage.setItem('bkgPref', value));
+
 export const bkgImgs = {
   mobile: {
     morning: 'assets/bkg-imgs/mobile-day.jpg',
@@ -29,9 +43,6 @@ export const getTimeOfDay = () => {
     return 'night';
   }
 }
-
-// Stores selected background theme
-export const bkgPrefStore = writable('scenic');
 
 export const timeOfDayStore = writable(getTimeOfDay());
 setInterval(() => {

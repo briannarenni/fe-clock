@@ -1,20 +1,23 @@
 <script>
   import { SkeletonText } from 'skeleton-elements/svelte';
-  import { clockStore, geoApiStore } from '@js/data-stores.js';
+  import { clockStore, geoDataStore } from '@js/stores.js';
   import Greeting from '@components/Greeting.svelte';
+
+  export let isInfoPanelOpen;
 
   $: time = $clockStore.currentTime;
   $: period = $clockStore.currentPeriod;
-  $: zoneCode = $geoApiStore.zoneCode;
-  $: city = $geoApiStore.city;
-  $: area = $geoApiStore.area;
+  $: zoneCode = $geoDataStore.zoneCode;
+  $: city = $geoDataStore.city;
+  $: area = $geoDataStore.area;
 </script>
 
 <main class="clock-container">
   <Greeting />
 
   <div class="clock">
-    <h1 class="time">{time}</h1>
+    <!-- Shrink font size if InfoPanel is open -->
+    <h1 class="time" style="font-size: {isInfoPanelOpen ? 'calc(var(--time-font) - 1rem)' : ''};">{time}</h1>
     {#if period}
       <div class="info-12hr">
         {#if !period}
@@ -37,7 +40,8 @@
   {#if !city || !area}
     <SkeletonText effect="wave">Lorem, ipsum dolor</SkeletonText>
   {:else}
-    <h4 class="location">in {city}, {area}</h4>
+    <!-- Shrink btm margin if InfoPanel is open -->
+    <h4 class="location" style="margin-block-end: {isInfoPanelOpen ? '0' : ''};">in {city}, {area}</h4>
   {/if}
 </main>
 
@@ -53,26 +57,13 @@
     line-height: 1.3;
   }
 
-  .location {
-    margin-block-end: var(--gap-lg);
-  }
-
-  /* 12-hour time alignment */
-  .info-12hr {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-  }
-
-  /* 24-hour time alignment */
-  .info-24hr {
-    align-self: center;
-    font-weight: normal;
-  }
-
   .time {
     letter-spacing: -3px;
     font-size: var(--time-font);
+  }
+
+  .location {
+    margin-block-end: var(--gap-lg);
   }
 
   .zonecode {
@@ -87,6 +78,18 @@
   .location,
   .zonecode {
     line-height: 28px;
+  }
+
+  /* Alignment based on selected format*/
+  .info-12hr {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+
+  .info-24hr {
+    align-self: center;
+    font-weight: normal;
   }
 
   @media screen and (min-width: 1024px) {

@@ -4,7 +4,7 @@
 
 A fully responsive app built with SvelteJS and Vite, and deployed with Netlify.
 
-<sub>_Comments have been added throughout the codebase for anyone coming from [Frontend Mentor Pro](https://www.frontendmentor.io) looking for help as well._</sub>
+<small>_Comments have been added throughout the codebase for anyone coming from [Frontend Mentor Pro](https://www.frontendmentor.io) looking for help as well._</small>
 
 ## App Features
 

@@ -2,42 +2,32 @@
   import { onMount } from 'svelte';
   import { slide } from 'svelte/transition';
   import { SkeletonBlock, SkeletonText } from 'skeleton-elements/svelte';
-  import { quoteApiStore } from '@js/data-stores.js';
-  import { fetchQuote } from '@js/api-services.js';
+  import { fetchQuoteData } from '@js/api-services.js';
+  import { updateQuote, quoteStore } from '@js/stores.js';
 
-  export let isExpandOpen;
+  export let isInfoPanelOpen;
 
-  $: quote = $quoteApiStore.quote;
-  $: author = $quoteApiStore.author;
-
-  const getQuote = async () => {
-    const response = await fetchQuote();
-    quoteApiStore.set({ quote: response.text, author: response.author });
-  };
-
-  onMount(async () => {
-    getQuote();
-  });
+  onMount(async () => updateQuote());
 </script>
 
-{#if !isExpandOpen}
+{#if !isInfoPanelOpen}
   <div class="quote-wrap" transition:slide={{ duration: 650, delay: 0 }}>
     <div class="quote">
-      {#if !quote}
+      {#if !$quoteStore.quote}
         <SkeletonBlock width="100%" height="4rem" effect="wave" />
       {:else}
-        <q>{quote} </q>
+        <q>{$quoteStore.quote} </q>
       {/if}
       <br />
       <br />
-      {#if !author}
+      {#if !$quoteStore.author}
         <SkeletonText effect="wave">Lorem ipsum</SkeletonText>
       {:else}
-        <p class="author">{author}</p>
+        <p class="author">{$quoteStore.author}</p>
       {/if}
     </div>
 
-    <button on:click={getQuote} class="refresh-btn">
+    <button on:click={updateQuote} class="refresh-btn">
       <img src="assets/icons/refresh-icon.svg" alt="Refresh quote" />
     </button>
   </div>

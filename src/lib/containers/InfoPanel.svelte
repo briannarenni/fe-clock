@@ -1,29 +1,29 @@
 <script>
   import { slide } from 'svelte/transition';
   import { windowSizeStore } from 'svelte-legos';
-  import { worldApiStore } from '@js/data-stores.js';
+  import { timeDataStore } from '@js/stores.js';
 
-  export let isExpandOpen;
-  export let toggleExpand;
+  export let isInfoPanelOpen;
+  export let toggleInfoPanel;
   const size = windowSizeStore();
 
   const formatTimezone = (str) => str.replace(/_/g, ' ');
 
-  $: currTimeZone = formatTimezone($worldApiStore.timezone);
-  $: dayOfWeek = $worldApiStore.dayOfWeek;
-  $: dayOfYear = $worldApiStore.dayOfYear;
-  $: weekNumber = $worldApiStore.weekNumber;
+  $: currTimeZone = formatTimezone($timeDataStore.timezone);
+  $: dayOfWeek = $timeDataStore.dayOfWeek;
+  $: dayOfYear = $timeDataStore.dayOfYear;
+  $: weekNumber = $timeDataStore.weekNumber;
 
-  $: btnText = isExpandOpen ? 'Less' : 'More';
-  $: iconSrc = isExpandOpen ? 'assets/icons/arrow-up.svg' : 'assets/icons/arrow-down.svg';
+  $: btnText = isInfoPanelOpen ? 'Less' : 'More';
+  $: iconSrc = isInfoPanelOpen ? 'assets/icons/arrow-up.svg' : 'assets/icons/arrow-down.svg';
 </script>
 
-<button class="expand-btn" on:click={toggleExpand}>
+<button class="expand-btn" on:click={toggleInfoPanel}>
   <p class="btn-text">{btnText}</p>
   <img class="btn-icon" src={iconSrc} alt="Show/hide more info" />
 </button>
 
-{#if isExpandOpen}
+{#if isInfoPanelOpen}
   <section class="expand-info" transition:slide={{ duration: 650, delay: 0 }}>
     <section class="info-group">
       <!-- * Trims text on mobile screens -->

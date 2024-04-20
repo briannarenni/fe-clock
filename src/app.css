@@ -1,14 +1,9 @@
 @import '@css/reset.css';
 @import '@css/font-scale.css';
 @import '@css/gap-scale.css';
+@import '@css/colors.css';
 
 :root {
-  --black: #000000;
-  --white: #FFFFFF;
-  --stone: #303030;
-  --gray: #787777;
-  --dark-bkg: linear-gradient(180deg, #090909 0%, #393838 50%, #292929 100%);
-  --light-bkg: linear-gradient(180deg, #b9b8b8 0%, #817f7f 50%, #616060 100%);
   color-scheme: light dark;
   font-synthesis: none;
   text-rendering: optimizeLegibility;

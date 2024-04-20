@@ -3,23 +3,20 @@
   import { windowSizeStore } from 'svelte-legos';
   import { setGeoInfo, setTimeInfo } from '@js/stores.js';
   import { resolveBkgStyle, bkgPrefStore, timeOfDayStore, bkgImgs, getScreenType } from '@js/theming.js';
-  import { Quote, Clock, Expand, Settings } from '@containers';
+  import { Quote, Clock, InfoPanel, SettingsMenu } from '@containers';
 
-  let isSettingsOpen = false;
-  let isExpandOpen = false;
-  const toggleSettings = () => (isSettingsOpen = !isSettingsOpen);
-  const toggleExpand = () => (isExpandOpen = !isExpandOpen);
+  let isSettingsMenuOpen = false;
+  let isInfoPanelOpen = false;
+  const toggleSettings = () => (isSettingsMenuOpen = !isSettingsMenuOpen);
+  const toggleInfoPanel = () => (isInfoPanelOpen = !isInfoPanelOpen);
 
-  // Sets app bkg image dynamically
   const size = windowSizeStore();
   $: screenType = getScreenType($size.width);
   $: timeOfDay = $timeOfDayStore;
   $: bkgPref = $bkgPrefStore;
 
-
+  // Determine app background
   $: bkgTheme = resolveBkgStyle(screenType, timeOfDay, bkgPref);
-
-
 
   onMount(async () => {
     setGeoInfo();
@@ -29,11 +26,10 @@
 </script>
 
 <div class="container" style={bkgTheme}>
-  <Settings {isSettingsOpen} {toggleSettings} />
-  <Quote {isExpandOpen} />
-  <!-- ! Fix Clock overflow? -->
-  <Clock {isExpandOpen} />
-  <Expand {isExpandOpen} {toggleExpand} />
+  <SettingsMenu {isSettingsMenuOpen} {toggleSettings} />
+  <Quote {isInfoPanelOpen} />
+  <Clock {isInfoPanelOpen} />
+  <InfoPanel {isInfoPanelOpen} {toggleInfoPanel} />
 </div>
 
 <style>

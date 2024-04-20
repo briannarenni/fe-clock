@@ -5,7 +5,7 @@
   import FormatToggle from '@components/FormatToggle.svelte';
   import BkgSelect from '@components/BkgSelect.svelte';
 
-  export let isSettingsOpen;
+  export let isSettingsMenuOpen;
   export let toggleSettings;
 
   const rotation = tweened(0, {
@@ -13,7 +13,7 @@
     easing: cubicInOut
   });
 
-  $: if (isSettingsOpen) {
+  $: if (isSettingsMenuOpen) {
     rotation.set(0);
   } else {
     rotation.set(150);
@@ -30,7 +30,7 @@
   <img class="btn-icon" src="assets/icons/settings.svg" alt="Settings Menu" style={rotationStyle} />
 </button>
 
-{#if isSettingsOpen}
+{#if isSettingsMenuOpen}
   <section class="settings" transition:slide={{ duration: 300, delay: 0, axis: 'x' }}>
     <div class="flex" transition:fade={{ delay: 350, duration: 200 }}>
       <h2 class="menu-title">Settings</h2>

@@ -5,12 +5,12 @@
   import { fetchQuoteData } from '@js/api-services.js';
   import { updateQuote, quoteStore } from '@js/stores.js';
 
-  export let isExpandOpen;
+  export let isInfoPanelOpen;
 
   onMount(async () => updateQuote());
 </script>
 
-{#if !isExpandOpen}
+{#if !isInfoPanelOpen}
   <div class="quote-wrap" transition:slide={{ duration: 650, delay: 0 }}>
     <div class="quote">
       {#if !$quoteStore.quote}

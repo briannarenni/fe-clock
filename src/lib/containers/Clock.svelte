@@ -3,7 +3,7 @@
   import { clockStore, geoDataStore } from '@js/stores.js';
   import Greeting from '@components/Greeting.svelte';
 
-  export let isExpandOpen;
+  export let isInfoPanelOpen;
 
   $: time = $clockStore.currentTime;
   $: period = $clockStore.currentPeriod;
@@ -16,8 +16,8 @@
   <Greeting />
 
   <div class="clock">
-    <!-- Shrink font size if Expand is open -->
-    <h1 class="time" style="font-size: {isExpandOpen ? 'calc(var(--time-font) - 1rem)' : ''};">{time}</h1>
+    <!-- Shrink font size if InfoPanel is open -->
+    <h1 class="time" style="font-size: {isInfoPanelOpen ? 'calc(var(--time-font) - 1rem)' : ''};">{time}</h1>
     {#if period}
       <div class="info-12hr">
         {#if !period}
@@ -40,8 +40,8 @@
   {#if !city || !area}
     <SkeletonText effect="wave">Lorem, ipsum dolor</SkeletonText>
   {:else}
-    <!-- Shrink btm margin if Expand is open -->
-    <h4 class="location" style="margin-block-end: {isExpandOpen ? '0' : ''};">in {city}, {area}</h4>
+    <!-- Shrink btm margin if InfoPanel is open -->
+    <h4 class="location" style="margin-block-end: {isInfoPanelOpen ? '0' : ''};">in {city}, {area}</h4>
   {/if}
 </main>
 

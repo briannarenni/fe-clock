@@ -2,8 +2,7 @@
   import { onMount } from 'svelte';
   import { slide } from 'svelte/transition';
   import { SkeletonBlock, SkeletonText } from 'skeleton-elements/svelte';
-  import { fetchQuoteData } from '@js/api-services.js';
-  import { updateQuote, quoteStore } from '@js/stores.js';
+  import { updateQuote, quoteStore } from '@js/api-stores.js';
 
   export let isInfoPanelOpen;
 

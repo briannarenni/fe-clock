@@ -1,7 +1,7 @@
 <script>
   import { slide } from 'svelte/transition';
   import { windowSizeStore } from 'svelte-legos';
-  import { timeDataStore } from '@js/stores.js';
+  import { timeDataStore } from '@js/api-stores.js';
 
   export let isInfoPanelOpen;
   export let toggleInfoPanel;

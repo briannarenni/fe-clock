@@ -1,8 +1,8 @@
 <script>
   import { onMount } from 'svelte';
   import { windowSizeStore } from 'svelte-legos';
-  import { setGeoInfo, setTimeInfo } from '@js/stores.js';
-  import { resolveBkgStyle, bkgPrefStore, timeOfDayStore, bkgImgs, getScreenType } from '@js/theming.js';
+  import { setGeoInfo, setTimeInfo } from '@js/api-stores.js';
+  import { resolveBkgStyle, bkgPrefStore, timeOfDayStore, bkgImgs, getScreenType } from '@js/theme.js';
   import { Quote, Clock, InfoPanel, SettingsMenu } from '@containers';
 
   let isSettingsMenuOpen = false;

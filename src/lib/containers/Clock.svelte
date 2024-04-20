@@ -1,6 +1,7 @@
 <script>
   import { SkeletonText } from 'skeleton-elements/svelte';
-  import { clockStore, geoDataStore } from '@js/stores.js';
+  import { clockStore } from '@js/clock-stores.js';
+  import { geoDataStore, timeDataStore } from '@js/api-stores.js';
   import Greeting from '@components/Greeting.svelte';
 
   export let isInfoPanelOpen;

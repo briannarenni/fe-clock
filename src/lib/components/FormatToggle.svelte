@@ -1,7 +1,7 @@
 <script>
   import { get } from 'svelte/store';
   import { fade } from 'svelte/transition';
-  import { use12HrFormatStore, getUserTime, clockStore } from '@js/stores.js';
+  import { use12HrFormatStore, getUserTime, clockStore } from '@js/clock-stores.js';
 
   const toggleFormat = () => {
     use12HrFormatStore.update((value) => {

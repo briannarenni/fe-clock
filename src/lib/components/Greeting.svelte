@@ -1,6 +1,6 @@
 <script>
   import { windowSizeStore } from 'svelte-legos';
-  import { timeOfDayStore } from '@js/theming.js';
+  import { timeOfDayStore } from '@js/theme.js';
 
   let greeting, iconSrc;
   const size = windowSizeStore();

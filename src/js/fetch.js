@@ -42,7 +42,7 @@ export const fetchGeoData = async () => {
 }
 
 export const fetchTimeData = async () => {
-  const url = `http://worldtimeapi.org/api/ip/`;
+  const url = `https://worldtimeapi.org/api/ip/`;
   try {
     const response = await ky.get(url).json();
     return response;

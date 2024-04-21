@@ -4,6 +4,7 @@
   import { slide, fade } from 'svelte/transition';
   import FormatToggle from '@components/FormatToggle.svelte';
   import BkgSelect from '@components/BkgSelect.svelte';
+  import SelectMenu from '@components/SelectMenu.svelte';
 
   export let isSettingsMenuOpen;
   export let toggleSettings;
@@ -35,7 +36,7 @@
     <div class="flex" transition:fade={{ delay: 350, duration: 200 }}>
       <h2 class="menu-title">Settings</h2>
       <FormatToggle />
-      <BkgSelect />
+      <SelectMenu />
     </div>
   </section>
 {/if}
@@ -47,10 +48,7 @@
 
   .menu-title {
     font-size: 1.8rem;
-    font-family: 'Lato', sans-serif;
     font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1.2px;
   }
 
   .settings,

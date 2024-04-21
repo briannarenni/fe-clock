@@ -16,6 +16,7 @@
   "dependencies": {
     "ky": "^1.2.0",
     "skeleton-elements": "^4.0.1",
-    "svelte-legos": "^0.2.2"
+    "svelte-legos": "^0.2.2",
+    "svelte-select": "^5.8.3"
   }
 }

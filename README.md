@@ -1,6 +1,6 @@
 # Dynamic Clock App
 
-**[Live Site](https://fe-clock.netlify.app/)** 
+**[Live Site](https://fe-clock.netlify.app/)**
 
 A fully responsive app built with SvelteJS and Vite, and deployed with Netlify (screenshots below).
 
@@ -30,6 +30,7 @@ Grateful as always to these ever-useful libraries:
 - [RapidAPI](https://rapidapi.com)
 - [Ky](https://github.com/sindresorhus/ky)
 - [Svelte Legos](https://github.com/ankurrsinghal/svelte-legos)
+- [svelte-select](https://github.com/rob-balfre/svelte-select)
 - [Icons8](https://icons8.com/icon/65324/clock)
 
 ## Desktop Screenshots
@@ -40,7 +41,7 @@ Grateful as always to these ever-useful libraries:
 
 <img width="800" alt="desktop screenshot" src="https://github.com/briannarenni/fe-clock/assets/69635579/aaa37541-c014-4efc-9bd2-05111ab39a94">
 
-## Mobile Screenshots 
+## Mobile Screenshots
 
 <img width="450" alt="mobile screenshot" src="https://github.com/briannarenni/fe-clock/assets/69635579/38ed658b-9919-465c-bccf-41d2404033c3">
 

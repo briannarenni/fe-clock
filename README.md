@@ -39,12 +39,12 @@ Grateful as always to these ever-useful libraries:
 
 <img width="800" alt="desktop screenshot" src="https://github.com/briannarenni/fe-clock/assets/69635579/2ce5bf5b-7f61-4482-a664-c47ed424e9d0">
 
-<img width="800" alt="desktop screenshot" src="https://github.com/briannarenni/fe-clock/assets/69635579/aaa37541-c014-4efc-9bd2-05111ab39a94">
+<img width="800" alt="new-screen 2" src="https://github.com/briannarenni/fe-clock/assets/69635579/9f194386-f17d-4686-95a0-b18664bd9e74">
 
 ## Mobile Screenshots
 
 <img width="450" alt="mobile screenshot" src="https://github.com/briannarenni/fe-clock/assets/69635579/38ed658b-9919-465c-bccf-41d2404033c3">
-
-<img width="450" alt="mobile screenshot" src="https://github.com/briannarenni/fe-clock/assets/69635579/00147d5a-c2d6-4ff3-b8b1-0446085a1aea">
-
+<br>
 <img width="450" alt="mobile screenshot" src="https://github.com/briannarenni/fe-clock/assets/69635579/f62412c0-ccdc-4808-ae1d-342ad0ec59a2">
+<br>
+<img width="450" alt="mobile screenshot" src="https://github.com/briannarenni/fe-clock/assets/69635579/c8675556-4b7f-4b00-b5fd-f9e25e45474bf">

@@ -1,3 +1,4 @@
+<!-- ! Unused component -->
 <script>
   import { bkgPrefStore } from '@js/theme.js';
 </script>
